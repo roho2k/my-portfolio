@@ -1,41 +1,38 @@
-import type { MetaFunction } from "@remix-run/node";
+import type { MetaFunction } from '@remix-run/node';
+// import { Wave1, Wave2, Wave3, Wave4 } from '~/components/icons';
 
 export const meta: MetaFunction = () => {
-  return [
-    { title: "New Remix App" },
-    { name: "description", content: "Welcome to Remix!" },
-  ];
+	return [
+		{ title: 'New Remix App' },
+		{ name: 'description', content: 'Welcome to Remix!' },
+	];
 };
 
 export default function Index() {
-  return (
-    <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
-      <h1>Welcome to Remix</h1>
-      <ul>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/blog"
-            rel="noreferrer"
-          >
-            15m Quickstart Blog Tutorial
-          </a>
-        </li>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/jokes"
-            rel="noreferrer"
-          >
-            Deep Dive Jokes App Tutorial
-          </a>
-        </li>
-        <li>
-          <a target="_blank" href="https://remix.run/docs" rel="noreferrer">
-            Remix Docs
-          </a>
-        </li>
-      </ul>
-    </div>
-  );
+	return (
+		<div className='flex h-screen'>
+			<div className='position: relative w-full flex-auto bg-gradient-to-b from-deep-sea-green to-pastel-green'>
+				<img
+					className='position: absolute mix-blend-difference'
+					src='/wave-1.svg'
+					alt='wave'
+				/>
+				<img
+					className='position: absolute mix-blend-difference'
+					src='/wave-2.svg'
+					alt='wave'
+				/>
+				<img
+					className='position: absolute mix-blend-color-dodge'
+					src='/wave-3.svg'
+					alt='wave'
+				/>
+				<img
+					className='position: absolute'
+					src='/wave-4.svg'
+					alt='wave'
+				/>
+			</div>
+		</div>
+	);
 }
