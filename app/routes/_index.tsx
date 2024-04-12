@@ -15,20 +15,20 @@ export default function Index() {
 	return (
 		<div
 			id='welcome-screen'
-			className='font-nunito-sans text-white bg-cloud-gray '
+			className='font-nunito-sans text-white bg-cloud-gray'
 		>
 			{/* Navbar Mobile */}
-			<Popover className='sticky top-0 sm:hidden bg-cloud-gray z-20'>
+			<Popover className='sticky top-0 sm:hidden bg-deep-sea-green drop-shadow-figma z-20'>
 				<div className='flex items-center py-1 px-5 '>
-					<h1 className='text-deep-sea-green font-bold'>Rodney Ho</h1>
+					<h1 className='text-white font-bold'>Rodney Ho</h1>
 					<div className='flex flex-auto justify-end'>
 						<Popover.Button className='outline-none'>
 							<div className='relative group'>
 								<div className='relative flex overflow-hidden items-center justify-center rounded-full w-[40px] h-[40px] transform transition-all ring-0'>
 									<div className='flex flex-col justify-between w-[15px] h-[15px]'>
-										<div className='bg-deep-sea-green h-[2px] w-5'></div>
-										<div className='bg-deep-sea-green h-[2px] w-5'></div>
-										<div className='bg-deep-sea-green h-[2px] w-5'></div>
+										<div className='bg-white h-[2px] w-5'></div>
+										<div className='bg-white h-[2px] w-5'></div>
+										<div className='bg-white h-[2px] w-5'></div>
 									</div>
 								</div>
 							</div>
@@ -43,7 +43,7 @@ export default function Index() {
 					<div className='flex flex-col gap-4 p-5 pt-0'>
 						<Link
 							to='#welcome-screen'
-							className='p-3 rounded text-deep-sea-green bg-deep-sea-green bg-opacity-20'
+							className='p-3 rounded font-semibold text-white bg-deep-sea-green'
 						>
 							<Popover.Button className='w-full'>
 								Home
@@ -52,7 +52,7 @@ export default function Index() {
 
 						<Link
 							to='#about'
-							className='p-3 rounded text-deep-sea-green bg-deep-sea-green bg-opacity-20'
+							className='p-3 rounded font-semibold text-white bg-deep-sea-green'
 						>
 							<Popover.Button className='w-full'>
 								About
@@ -61,7 +61,7 @@ export default function Index() {
 
 						<Link
 							to='#experience'
-							className='p-3 rounded text-deep-sea-green bg-deep-sea-green bg-opacity-20'
+							className='p-3 rounded font-semibold text-white bg-deep-sea-green'
 						>
 							<Popover.Button className='w-full'>
 								Experience
@@ -70,7 +70,7 @@ export default function Index() {
 
 						<Link
 							to='#projects'
-							className='p-3 rounded text-deep-sea-green bg-deep-sea-green bg-opacity-20'
+							className='p-3 rounded font-semibold text-white bg-deep-sea-green'
 						>
 							<Popover.Button className='w-full'>
 								Projects
@@ -79,7 +79,7 @@ export default function Index() {
 
 						<Link
 							to='#contact'
-							className='p-3 rounded text-deep-sea-green bg-deep-sea-green bg-opacity-20'
+							className='p-3 rounded font-semibold text-white bg-deep-sea-green'
 						>
 							<Popover.Button className='w-full'>
 								Contact
