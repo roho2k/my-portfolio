@@ -161,11 +161,11 @@ export default function Index() {
 					<div className='flex flex-col gap-10 drop-shadow-figma'>
 						<div className='flex flex-col gap-6 text-center md:text-left'>
 							<h1 className='font-bold text-2xl md:text-4xl lg:text-6xl'>
-								Hello I'm
+								Hello I&apos;m
 								<span className='text-plum'> Rodney</span>.
 							</h1>
 							<h1 className='font-bold text-2xl md:text-4xl lg:text-6xl'>
-								I'm a full stack web developer.
+								I&apos;m a full stack web developer.
 							</h1>
 						</div>
 
@@ -222,13 +222,14 @@ export default function Index() {
 										<span className='text-xl md:text-4xl'>
 											H
 										</span>
-										ey! I'm Rodney, a full stack developer
-										with expertise in web development. My
-										experience spans creating interactive
-										user interfaces using React, designing
-										RESTful APIs with NodeJS and Express,
-										and managing SQL and NoSQL databases
-										like PostgreSQL and MongoDB.
+										ey! I&apos;m Rodney, a full stack
+										developer with expertise in web
+										development. My experience spans
+										creating interactive user interfaces
+										using React, designing RESTful APIs with
+										NodeJS and Express, and managing SQL and
+										NoSQL databases like PostgreSQL and
+										MongoDB.
 									</p>
 
 									<p className='pb-5'>
@@ -241,9 +242,9 @@ export default function Index() {
 									</p>
 
 									<p className='pb-3'>
-										When I'm not at my computer I like to
-										spend my time reading, keeping fit, and
-										playing with my cats.
+										When I&apos;m not at my computer I like
+										to spend my time reading, keeping fit,
+										and playing with my cats.
 									</p>
 								</div>
 							</div>
