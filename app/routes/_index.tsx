@@ -2,10 +2,12 @@ import { Popover } from '@headlessui/react';
 import type { MetaFunction } from '@remix-run/node';
 import { Link } from '@remix-run/react';
 import AboutBanner from '~/components/AboutBanner/AboutBanner';
+import DownArrowIcon from '~/components/DownArrowIcon/DownArrowIcon';
 import GithubIcon from '~/components/GithubIcon/GithubIcon';
 import LinkIcon from '~/components/LinkIcon/LinkIcon';
 import ProjectBanner from '~/components/ProjectBanner/ProjectBanner';
 import SectionHeader from '~/components/SectionHeader/SectionHeader';
+import SendIcon from '~/components/SendIcon/SendIcon';
 import Tag from '~/components/Tag/Tag';
 import TechLogo from '~/components/TechLogo/TechLogo';
 
@@ -176,23 +178,7 @@ export default function Index() {
 							<p className='font-bold text-md md:text-2xl lg:text-4xl'>
 								View Portfolio
 							</p>
-							<svg
-								className='h-6 w-6 md:h-8 md:w-8 '
-								viewBox='0 0 24 24'
-								fill='none'
-								stroke='currentColor'
-								strokeWidth='2'
-								strokeLinecap='round'
-								strokeLinejoin='round'
-							>
-								<line
-									x1='12'
-									y1='5'
-									x2='12'
-									y2='19'
-								/>
-								<polyline points='19 12 12 19 5 12' />
-							</svg>
+							<DownArrowIcon />
 						</Link>
 					</div>
 				</div>
@@ -424,30 +410,7 @@ export default function Index() {
 								className='flex gap-2 bg-pastel-green px-3 py-1.5 rounded font-semibold'
 							>
 								Send
-								<svg
-									className='h-6 w-6'
-									width='24'
-									height='24'
-									viewBox='0 0 24 24'
-									strokeWidth='1'
-									stroke='currentColor'
-									fill='none'
-									strokeLinecap='round'
-									strokeLinejoin='round'
-								>
-									{' '}
-									<path
-										stroke='none'
-										d='M0 0h24v24H0z'
-									/>{' '}
-									<line
-										x1='10'
-										y1='14'
-										x2='21'
-										y2='3'
-									/>{' '}
-									<path d='M21 3L14.5 21a.55 .55 0 0 1 -1 0L10 14L3 10.5a.55 .55 0 0 1 0 -1L21 3' />
-								</svg>
+								<SendIcon />
 							</a>
 						</div>
 					</div>

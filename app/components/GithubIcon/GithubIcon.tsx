@@ -1,3 +1,5 @@
+import classNames from 'classnames';
+
 interface GithubIconProps {
 	className?: string;
 }
@@ -5,7 +7,7 @@ interface GithubIconProps {
 export default function GithubIcon({ className = '' }: GithubIconProps) {
 	return (
 		<svg
-			className={`fill-white h-5 w-5 ${className}`}
+			className={classNames('fill-white w-5 h-5', className)}
 			viewBox='0 0 98 96'
 		>
 			<path
