@@ -187,15 +187,15 @@ export default function Index() {
 
 			{/* Content */}
 			{/* About */}
-			<div className='bg-cloud-gray'>
+			<div className='bg-cloud-gray max-w-screen-xl mx-auto'>
 				<div
 					id='about'
 					className='px-10 py-10'
 				>
 					<SectionHeader>About Me</SectionHeader>
-					<div className='md:pt-10'>
+					<div className='flex justify-center md:pt-10 lg:pt-20'>
 						<AboutBanner>
-							<div className='flex flex-col gap-5'>
+							<div className='flex flex-col gap-5 lg:max-w-xl'>
 								<div className='flex justify-center items-center'>
 									<img
 										className='w-[150px] h-[150px]'
@@ -234,7 +234,7 @@ export default function Index() {
 									</p>
 								</div>
 							</div>
-							<div className='flex flex-col gap-10'>
+							<div className='flex flex-col gap-10 lg:gap-0'>
 								<div className='flex flex-auto items-end gap-10'>
 									<TechLogo
 										src='/assets/images/about/nodejs.svg'
@@ -332,9 +332,9 @@ export default function Index() {
 					className='py-10'
 				>
 					<SectionHeader>Projects</SectionHeader>
-					<div className='mx-5 md:pt-10'>
-						<ProjectBanner>
-							<ProjectBanner.LeftPanel>
+					<div className='mx-5 md:pt-10 lg:pt-20'>
+						<ProjectBanner className='justify-center'>
+							<ProjectBanner.LeftPanel className='lg:max-w-lg'>
 								<div className='flex justify-center'>
 									<img
 										className='rounded'
@@ -355,7 +355,7 @@ export default function Index() {
 								</div>
 							</ProjectBanner.LeftPanel>
 
-							<ProjectBanner.RightPanel className='text-deep-sea-green'>
+							<ProjectBanner.RightPanel className='text-deep-sea-green lg:max-w-md'>
 								<div className=''>
 									<h2 className='font-bold text-xl md:text-2xl lg:text-4xl'>
 										Portfolio 2024
