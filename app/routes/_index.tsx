@@ -1,7 +1,12 @@
 import { Popover } from '@headlessui/react';
 import type { MetaFunction } from '@remix-run/node';
 import { Link } from '@remix-run/react';
+import AboutBanner from '~/components/AboutBanner/AboutBanner';
+import Banner from '~/components/Banner/Banner';
+import LinkIcon from '~/components/LinkIcon/LinkIcon';
+import ProjectBanner from '~/components/ProjectBanner/ProjectBanner';
 import SectionHeader from '~/components/SectionHeader/SectionHeader';
+import Tag from '~/components/Tag/Tag';
 import TechLogo from '~/components/TechLogo/TechLogo';
 
 export const meta: MetaFunction = () => {
@@ -202,105 +207,109 @@ export default function Index() {
 					className='px-10 py-10'
 				>
 					<SectionHeader>About Me</SectionHeader>
+					<div className='md:pt-10'>
+						<AboutBanner>
+							<div className='flex flex-col gap-5'>
+								<div className='flex justify-center items-center'>
+									<img
+										className='w-[150px] h-[150px]'
+										src='/assets/images/about/persona.svg'
+										alt='persona'
+									/>
+								</div>
+								<div className='flex flex-col font-semibold text-sm md:text-base bg-deep-sea-green rounded py-3 px-5 '>
+									<p className='pb-5'>
+										<span className='text-xl md:text-4xl'>
+											H
+										</span>
+										ey! I'm Rodney, a full stack developer
+										with expertise in web development. My
+										experience spans creating interactive
+										user interfaces using React, designing
+										RESTful APIs with NodeJS and Express,
+										and managing SQL and NoSQL databases
+										like PostgreSQL and MongoDB.
+									</p>
 
-					<div className='flex flex-col gap-10'>
-						<div className='flex flex-col gap-5'>
-							<div className='flex justify-center items-center'>
-								<img
-									className='w-[150px] h-[150px]'
-									src='/assets/images/about/persona.svg'
-									alt='persona'
-								/>
-							</div>
-							<div className='flex flex-col bg-deep-sea-green rounded py-3 px-5 '>
-								<p className='font-semibold text-sm pb-5'>
-									<span className='text-xl'>H</span>ey! I'm
-									Rodney, a full stack developer with
-									expertise in web development. My experience
-									spans creating interactive user interfaces
-									using React, designing RESTful APIs with
-									NodeJS and Express, and managing SQL and
-									NoSQL databases like PostgreSQL and MongoDB.
-								</p>
+									<p className='pb-5'>
+										I have a strong passion for building
+										robust and clean software. My focus on
+										best practices and continuous learning
+										ensures that the software I build not
+										only meets current requirements but also
+										adapts seamlessly to future challenges.
+									</p>
 
-								<p className='font-semibold text-sm pb-5'>
-									I have a strong passion for building robust
-									and clean software. My focus on best
-									practices and continuous learning ensures
-									that the software I build not only meets
-									current requirements but also adapts
-									seamlessly to future challenges.
-								</p>
-
-								<p className='font-semibold text-sm pb-3'>
-									When I'm not at my computer I like to spend
-									my time reading, keeping fit, and playing
-									with my cats.
-								</p>
+									<p className='pb-3'>
+										When I'm not at my computer I like to
+										spend my time reading, keeping fit, and
+										playing with my cats.
+									</p>
+								</div>
 							</div>
-						</div>
-						<div className='flex flex-col gap-10'>
-							<div className='flex flex-auto items-center gap-10'>
-								<TechLogo
-									src='/assets/images/about/nodejs.svg'
-									alt='nodejs-logo'
-								>
-									NodeJs
-								</TechLogo>
-								<TechLogo
-									src='/assets/images/about/react.svg'
-									alt='react-logo'
-								>
-									React
-								</TechLogo>
-								<TechLogo
-									src='/assets/images/about/typescript.svg'
-									alt='typescript-logo'
-								>
-									TypeScript
-								</TechLogo>
+							<div className='flex flex-col gap-10'>
+								<div className='flex flex-auto items-center gap-10'>
+									<TechLogo
+										src='/assets/images/about/nodejs.svg'
+										alt='nodejs-logo'
+									>
+										NodeJs
+									</TechLogo>
+									<TechLogo
+										src='/assets/images/about/react.svg'
+										alt='react-logo'
+									>
+										React
+									</TechLogo>
+									<TechLogo
+										src='/assets/images/about/typescript.svg'
+										alt='typescript-logo'
+									>
+										TypeScript
+									</TechLogo>
+								</div>
+								<div className='flex flex-auto items-center gap-10'>
+									<TechLogo
+										src='/assets/images/about/remix.svg'
+										alt='remix-logo'
+									>
+										Remix
+									</TechLogo>
+									<TechLogo
+										src='/assets/images/about/supabase.svg'
+										alt='supabase-logo'
+									>
+										Supabase
+									</TechLogo>
+									<TechLogo
+										src='/assets/images/about/prisma.svg'
+										alt='prisma-logo'
+									>
+										Prisma
+									</TechLogo>
+								</div>
+								<div className='flex flex-auto items-center gap-10'>
+									<TechLogo
+										src='/assets/images/about/javascript.svg'
+										alt='javascript-logo'
+									>
+										Javascript
+									</TechLogo>
+									<TechLogo
+										src='/assets/images/about/html.svg'
+										alt='html-logo'
+									>
+										HTML
+									</TechLogo>
+									<TechLogo
+										src='/assets/images/about/css.svg'
+										alt='css-logo'
+									>
+										CSS
+									</TechLogo>
+								</div>
 							</div>
-							<div className='flex flex-auto items-center gap-10'>
-								<TechLogo
-									src='/assets/images/about/remix.svg'
-									alt='remix-logo'
-								>
-									Remix
-								</TechLogo>
-								<TechLogo
-									src='/assets/images/about/supabase.svg'
-									alt='supabase-logo'
-								>
-									Supabase
-								</TechLogo>
-								<TechLogo
-									src='/assets/images/about/prisma.svg'
-									alt='prisma-logo'
-								>
-									Prisma
-								</TechLogo>
-							</div>
-							<div className='flex flex-auto items-center gap-10'>
-								<TechLogo
-									src='/assets/images/about/javascript.svg'
-									alt='javascript-logo'
-								>
-									Javascript
-								</TechLogo>
-								<TechLogo
-									src='/assets/images/about/html.svg'
-									alt='html-logo'
-								>
-									HTML
-								</TechLogo>
-								<TechLogo
-									src='/assets/images/about/css.svg'
-									alt='css-logo'
-								>
-									CSS
-								</TechLogo>
-							</div>
-						</div>
+						</AboutBanner>
 					</div>
 				</div>
 				{/* Experience */}
@@ -336,9 +345,9 @@ export default function Index() {
 					className='py-10'
 				>
 					<SectionHeader>Projects</SectionHeader>
-					<div className='mx-5'>
-						<div className='flex flex-col gap-5'>
-							<div className='flex flex-col gap-5'>
+					<div className='mx-5 md:pt-10'>
+						<ProjectBanner>
+							<ProjectBanner.LeftPanel>
 								<div className='flex justify-center'>
 									<img
 										className='rounded'
@@ -352,39 +361,26 @@ export default function Index() {
 										Github
 										<img
 											className='h-5'
-											src='/assets/images/github-logo.svg'
+											src='/assets/images/icons/github-logo.svg'
 											alt='github-logo'
 										/>
 									</div>
 									<div className='flex gap-3 px-3 py-1.5 font-semibold text-deep-sea-green-hover bg-deep-sea-green bg-opacity-20 rounded'>
 										Link
-										<svg
-											xmlns='http://www.w3.org/2000/svg'
-											fill='none'
-											viewBox='0 0 24 24'
-											strokeWidth='1.5'
-											stroke='currentColor'
-											className='w-5 h-5'
-										>
-											<path
-												strokeLinecap='round'
-												strokeLinejoin='round'
-												d='M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244'
-											/>
-										</svg>
+										<LinkIcon />
 									</div>
 								</div>
-							</div>
+							</ProjectBanner.LeftPanel>
 
-							<div className='text-deep-sea-green'>
+							<ProjectBanner.RightPanel className='text-deep-sea-green'>
 								<div className=''>
-									<h2 className='font-bold text-xl'>
+									<h2 className='font-bold text-xl md:text-2xl lg:text-4xl'>
 										Portfolio 2024
 									</h2>
-									<p className='border-b-2 border-faded-sea-green font-semibold text-xs py-2'>
+									<p className='border-b-2 border-faded-sea-green font-semibold text-xs md:text-sm lg:text-base py-2'>
 										By Me
 									</p>
-									<p className='font-semibold text-sm pt-3'>
+									<p className='font-semibold text-sm md:text-base lg:text-lg pt-3'>
 										A project on my portfolio designed in
 										Figma and built using React, Remix
 										Framework, and Tailwind.
@@ -392,25 +388,18 @@ export default function Index() {
 										approached this project in the link
 										button above! */}
 									</p>
-									<div className='flex flex-wrap gap-3 pt-5'>
-										<div className='font-semibold bg-faded-sea-green text-deep-sea-green rounded px-3 py-0.5'>
-											React
-										</div>
-										<div className='font-semibold bg-faded-sea-green text-deep-sea-green rounded px-3 py-0.5'>
-											Remix
-										</div>
-										<div className='font-semibold bg-faded-sea-green text-deep-sea-green rounded px-3 py-0.5'>
-											Tailwind
-										</div>
-										<div className='font-semibold bg-faded-sea-green text-deep-sea-green rounded px-3 py-0.5'>
-											Figma
-										</div>
+									<div className='flex flex-wrap gap-3 pt-5 lg:text-lg'>
+										<Tag>React</Tag>
+										<Tag>Remix</Tag>
+										<Tag>Tailwind</Tag>
+										<Tag>Figma</Tag>
 									</div>
 								</div>
-							</div>
-						</div>
+							</ProjectBanner.RightPanel>
+						</ProjectBanner>
 					</div>
 				</div>
+
 				{/* Contact */}
 				<div
 					id='contact'
