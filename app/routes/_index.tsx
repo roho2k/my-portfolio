@@ -2,7 +2,7 @@ import { Popover } from '@headlessui/react';
 import type { MetaFunction } from '@remix-run/node';
 import { Link } from '@remix-run/react';
 import AboutBanner from '~/components/AboutBanner/AboutBanner';
-import Banner from '~/components/Banner/Banner';
+import GithubIcon from '~/components/GithubIcon/GithubIcon';
 import LinkIcon from '~/components/LinkIcon/LinkIcon';
 import ProjectBanner from '~/components/ProjectBanner/ProjectBanner';
 import SectionHeader from '~/components/SectionHeader/SectionHeader';
@@ -248,7 +248,7 @@ export default function Index() {
 								</div>
 							</div>
 							<div className='flex flex-col gap-10'>
-								<div className='flex flex-auto items-center gap-10'>
+								<div className='flex flex-auto items-end gap-10'>
 									<TechLogo
 										src='/assets/images/about/nodejs.svg'
 										alt='nodejs-logo'
@@ -268,7 +268,7 @@ export default function Index() {
 										TypeScript
 									</TechLogo>
 								</div>
-								<div className='flex flex-auto items-center gap-10'>
+								<div className='flex flex-auto items-end gap-10'>
 									<TechLogo
 										src='/assets/images/about/remix.svg'
 										alt='remix-logo'
@@ -288,7 +288,7 @@ export default function Index() {
 										Prisma
 									</TechLogo>
 								</div>
-								<div className='flex flex-auto items-center gap-10'>
+								<div className='flex flex-auto items-end gap-10'>
 									<TechLogo
 										src='/assets/images/about/javascript.svg'
 										alt='javascript-logo'
@@ -359,11 +359,7 @@ export default function Index() {
 								<div className='flex gap-5 justify-center'>
 									<div className='flex gap-3 px-3 py-1.5 items-center font-semibold bg-deep-sea-green rounded'>
 										Github
-										<img
-											className='h-5'
-											src='/assets/images/icons/github-logo.svg'
-											alt='github-logo'
-										/>
+										<GithubIcon />
 									</div>
 									<div className='flex gap-3 px-3 py-1.5 font-semibold text-deep-sea-green-hover bg-deep-sea-green bg-opacity-20 rounded'>
 										Link

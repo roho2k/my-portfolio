@@ -1,30 +1,29 @@
+import classNames from 'classnames';
+
 interface TechLogoProps {
 	children: React.ReactNode;
 	className?: string;
-	width?: string;
-	height?: string;
+	classNameImg?: string;
 	src: string;
 	alt: string;
-	imgWidth?: string;
-	imgHeight?: string;
 }
 
 export default function TechLogo({
 	children,
-	className,
-	width = '16',
-	height = '16',
+	className = '',
+	classNameImg = '',
 	src,
 	alt,
-	imgWidth = '10',
-	imgHeight = '10',
 }: TechLogoProps) {
 	return (
 		<div
-			className={`flex flex-1 flex-col items-center w-${width} h-${height} ${className} `}
+			className={classNames(
+				'flex flex-1 flex-col items-center w-16 h-16',
+				className
+			)}
 		>
 			<img
-				className={`w-${imgWidth} h-${imgHeight}`}
+				className={classNames('w-10 h-10', classNameImg)}
 				src={src}
 				alt={alt}
 			/>
