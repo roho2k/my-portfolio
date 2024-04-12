@@ -89,6 +89,45 @@ export default function Index() {
 				</Popover.Panel>
 			</Popover>
 
+			{/* NavBar Desktop*/}
+			<div className='hidden sm:flex bg-deep-sea-green font-bold px-10 sticky top-0 z-20'>
+				<div className='flex flex-auto'>
+					<Link
+						to='#welcome-screen'
+						className='p-3 hover:bg-deep-sea-green-hover'
+					>
+						Home
+					</Link>
+				</div>
+
+				<div className='flex justify-center'>
+					<Link
+						to='#about'
+						className='p-3 hover:bg-deep-sea-green-hover'
+					>
+						About
+					</Link>
+					<Link
+						to='#experience'
+						className='p-3 hover:bg-deep-sea-green-hover'
+					>
+						Experience
+					</Link>
+					<Link
+						to='#projects'
+						className='p-3 hover:bg-deep-sea-green-hover'
+					>
+						Projects
+					</Link>
+					<Link
+						to='#contact'
+						className='p-3 hover:bg-deep-sea-green-hover'
+					>
+						Contact
+					</Link>
+				</div>
+			</div>
+
 			{/* Welcome Screen */}
 			<div className='flex flex-col h-screen w-full bg-gradient-to-b from-deep-sea-green to-pastel-green'>
 				<section className='relative'>
@@ -154,45 +193,6 @@ export default function Index() {
 				</div>
 			</div>
 			{/* End Welcome Screen */}
-
-			{/* NavBar Desktop*/}
-			<div className='hidden sm:flex bg-deep-sea-green font-bold px-10 sticky top-0'>
-				<div className='flex flex-auto'>
-					<Link
-						to='#welcome-screen'
-						className='p-3 hover:bg-deep-sea-green-hover'
-					>
-						Home
-					</Link>
-				</div>
-
-				<div className='flex justify-center'>
-					<Link
-						to='#about'
-						className='p-3 hover:bg-deep-sea-green-hover'
-					>
-						About
-					</Link>
-					<Link
-						to='#experience'
-						className='p-3 hover:bg-deep-sea-green-hover'
-					>
-						Experience
-					</Link>
-					<Link
-						to='#projects'
-						className='p-3 hover:bg-deep-sea-green-hover'
-					>
-						Projects
-					</Link>
-					<Link
-						to='#contact'
-						className='p-3 hover:bg-deep-sea-green-hover'
-					>
-						Contact
-					</Link>
-				</div>
-			</div>
 
 			{/* Content */}
 			<div className='bg-cloud-gray'>
@@ -410,7 +410,7 @@ export default function Index() {
 				</div>
 				<div
 					id='contact'
-					className='flex justify-center items-center mb-10'
+					className='flex justify-center items-center pb-10'
 				>
 					<div className='flex flex-col bg-deep-sea-green mx-5 p-5 rounded'>
 						<div className='flex flex-col gap-3 pb-6'>
