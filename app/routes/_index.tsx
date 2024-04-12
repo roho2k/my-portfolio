@@ -195,6 +195,7 @@ export default function Index() {
 			{/* End Welcome Screen */}
 
 			{/* Content */}
+			{/* About */}
 			<div className='bg-cloud-gray'>
 				<div
 					id='about'
@@ -302,6 +303,7 @@ export default function Index() {
 						</div>
 					</div>
 				</div>
+				{/* Experience */}
 				<div
 					id='experience'
 					className='flex flex-col py-10'
@@ -328,6 +330,7 @@ export default function Index() {
 						</div>
 					</div>
 				</div>
+				{/* Projects */}
 				<div
 					id='projects'
 					className='py-10'
@@ -408,6 +411,7 @@ export default function Index() {
 						</div>
 					</div>
 				</div>
+				{/* Contact */}
 				<div
 					id='contact'
 					className='flex justify-center items-center pb-10'
