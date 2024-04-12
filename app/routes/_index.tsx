@@ -2,6 +2,7 @@ import { Popover } from '@headlessui/react';
 import type { MetaFunction } from '@remix-run/node';
 import { Link } from '@remix-run/react';
 import SectionHeader from '~/components/SectionHeader/SectionHeader';
+import TechLogo from '~/components/TechLogo/TechLogo';
 
 export const meta: MetaFunction = () => {
 	return [
@@ -199,46 +200,105 @@ export default function Index() {
 					id='about'
 					className='px-10 py-10'
 				>
-					{/* <div className='flex flex-col items-center py-5'>
-						<h1 className='relative flex justify-center w-fit text-2xl text-deep-sea-green font-extrabold z-10'>
-							About Me
-							<div className='absolute h-2/5 w-5/6 bg-faded-sea-green left-6 bottom-0 -z-10'></div>
-						</h1>
-					</div> */}
 					<SectionHeader>About Me</SectionHeader>
 
-					<div className='flex flex-col gap-5'>
-						<div className='flex justify-center items-center'>
-							<img
-								className='w-[150px] h-[150px]'
-								src='/assets/images/about/persona.svg'
-								alt='persona'
-							/>
+					<div className='flex flex-col gap-10'>
+						<div className='flex flex-col gap-5'>
+							<div className='flex justify-center items-center'>
+								<img
+									className='w-[150px] h-[150px]'
+									src='/assets/images/about/persona.svg'
+									alt='persona'
+								/>
+							</div>
+							<div className='flex flex-col bg-deep-sea-green rounded py-3 px-5 '>
+								<p className='font-semibold text-sm pb-5'>
+									<span className='text-xl'>H</span>ey! I'm
+									Rodney, a full stack developer with
+									expertise in web development. My experience
+									spans creating interactive user interfaces
+									using React, designing RESTful APIs with
+									NodeJS and Express, and managing SQL and
+									NoSQL databases like PostgreSQL and MongoDB.
+								</p>
+
+								<p className='font-semibold text-sm pb-5'>
+									I have a strong passion for building robust
+									and clean software. My focus on best
+									practices and continuous learning ensures
+									that the software I build not only meets
+									current requirements but also adapts
+									seamlessly to future challenges.
+								</p>
+
+								<p className='font-semibold text-sm pb-3'>
+									When I'm not at my computer I like to spend
+									my time reading, keeping fit, and playing
+									with my cats.
+								</p>
+							</div>
 						</div>
-						<div className='flex flex-col bg-deep-sea-green rounded py-3 px-5 '>
-							<p className='font-semibold text-sm pb-5'>
-								<span className='text-xl'>H</span>ey! I'm
-								Rodney, a full stack developer with expertise in
-								web development. My experience spans creating
-								interactive user interfaces using React,
-								designing RESTful APIs with NodeJS and Express,
-								and managing SQL and NoSQL databases like
-								PostgreSQL and MongoDB.
-							</p>
-
-							<p className='font-semibold text-sm pb-5'>
-								I have a strong passion for building robust and
-								clean software. My focus on best practices and
-								continuous learning ensures that the software I
-								build not only meets current requirements but
-								also adapts seamlessly to future challenges.
-							</p>
-
-							<p className='font-semibold text-sm pb-3'>
-								When I'm not at my computer I like to spend my
-								time reading, keeping fit, and playing with my
-								cats.
-							</p>
+						<div className='flex flex-col gap-10'>
+							<div className='flex flex-auto items-center gap-10'>
+								<TechLogo
+									src='/assets/images/about/nodejs.svg'
+									alt='nodejs-logo'
+								>
+									NodeJs
+								</TechLogo>
+								<TechLogo
+									src='/assets/images/about/react.svg'
+									alt='react-logo'
+								>
+									React
+								</TechLogo>
+								<TechLogo
+									src='/assets/images/about/typescript.svg'
+									alt='typescript-logo'
+								>
+									TypeScript
+								</TechLogo>
+							</div>
+							<div className='flex flex-auto items-center gap-10'>
+								<TechLogo
+									src='/assets/images/about/remix.svg'
+									alt='remix-logo'
+								>
+									Remix
+								</TechLogo>
+								<TechLogo
+									src='/assets/images/about/supabase.svg'
+									alt='supabase-logo'
+								>
+									Supabase
+								</TechLogo>
+								<TechLogo
+									src='/assets/images/about/prisma.svg'
+									alt='prisma-logo'
+								>
+									Prisma
+								</TechLogo>
+							</div>
+							<div className='flex flex-auto items-center gap-10'>
+								<TechLogo
+									src='/assets/images/about/javascript.svg'
+									alt='javascript-logo'
+								>
+									Javascript
+								</TechLogo>
+								<TechLogo
+									src='/assets/images/about/html.svg'
+									alt='html-logo'
+								>
+									HTML
+								</TechLogo>
+								<TechLogo
+									src='/assets/images/about/css.svg'
+									alt='css-logo'
+								>
+									CSS
+								</TechLogo>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -322,10 +382,9 @@ export default function Index() {
 										By Me
 									</p>
 									<p className='font-semibold text-sm pt-3'>
-										A project on my portfolio created from
-										scratch using Figma to what you
-										currently see using Remix framework and
-										Tailwind.
+										A project on my portfolio designed in
+										Figma and built using React, Remix
+										Framework, and Tailwind.
 										{/* Check out in detail how I
 										approached this project in the link
 										button above! */}
