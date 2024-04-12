@@ -90,7 +90,7 @@ export default function Index() {
 			</Popover>
 
 			{/* NavBar Desktop*/}
-			<div className='hidden sm:flex bg-deep-sea-green font-bold px-10 sticky top-0 z-20'>
+			<div className='hidden sm:flex bg-deep-sea-green font-bold px-10 sticky top-0 drop-shadow-figma z-20'>
 				<div className='flex flex-auto'>
 					<Link
 						to='#welcome-screen'
