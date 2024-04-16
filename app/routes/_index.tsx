@@ -1,6 +1,6 @@
 import { Popover } from '@headlessui/react';
 import type { MetaFunction } from '@remix-run/node';
-import { Link } from '@remix-run/react';
+import { Form, Link } from '@remix-run/react';
 import AboutBanner from '~/components/AboutBanner/AboutBanner';
 import DownArrowIcon from '~/components/DownArrowIcon/DownArrowIcon';
 import GithubIcon from '~/components/GithubIcon/GithubIcon';
@@ -329,10 +329,10 @@ export default function Index() {
 				{/* Projects */}
 				<div
 					id='projects'
-					className='py-10'
+					className='py-10 h-screen'
 				>
 					<SectionHeader>Projects</SectionHeader>
-					<div className='mx-5 md:pt-10 lg:pt-20'>
+					<div className='mx-10 md:pt-10 lg:pt-20'>
 						<ProjectBanner className='justify-center'>
 							<ProjectBanner.LeftPanel className='lg:max-w-lg'>
 								<div className='flex justify-center'>
@@ -386,9 +386,47 @@ export default function Index() {
 				{/* Contact */}
 				<div
 					id='contact'
-					className='flex justify-center items-center pb-10'
+					className='pb-10'
 				>
-					<div className='flex flex-col bg-deep-sea-green mx-5 p-5 rounded'>
+					<SectionHeader>Contacts</SectionHeader>
+					<div className='m-10 mt-0'>
+						<div className='flex flex-col justify-center gap-5 bg-deep-sea-green mx-auto p-5 rounded max-w-screen-sm'>
+							<Form
+								className='flex flex-col gap-3'
+								method='post'
+							>
+								<input
+									className='bg-faded-sea-green placeholder:text-[#1a7468] placeholder:font-normal text-deep-sea-green rounded font-semibold py-1 px-3 focus-visible:outline-none'
+									name='name'
+									placeholder='Name'
+									type='text'
+								/>
+								<input
+									className='bg-faded-sea-green placeholder:text-[#1a7468] placeholder:font-normal text-deep-sea-green rounded font-semibold py-1 px-3 focus-visible:outline-none'
+									name='email'
+									placeholder='Email'
+									type='email'
+								/>
+								<textarea
+									className='bg-faded-sea-green placeholder:text-[#1a7468] placeholder:font-normal text-deep-sea-green rounded font-semibold py-3 px-3 focus-visible:outline-none'
+									name='message'
+									placeholder='Send me a message!'
+									rows={6}
+								/>
+							</Form>
+							<div className='flex justify-end text-deep-sea-green'>
+								<button
+									className='flex gap-2 bg-faded-sea-green px-3 py-1.5 rounded font-semibold'
+									type='submit'
+								>
+									Send
+									<SendIcon />
+								</button>
+							</div>
+						</div>
+					</div>
+
+					{/* <div className='flex flex-col bg-deep-sea-green mx-5 p-5 rounded'>
 						<div className='flex flex-col gap-3 pb-6'>
 							<h1 className='font-extrabold text-4xl'>
 								Contact Me
@@ -407,13 +445,13 @@ export default function Index() {
 						<div className='flex justify-end text-deep-sea-green'>
 							<a
 								href='mailto: rodneyrhkk@gmail.com'
-								className='flex gap-2 bg-pastel-green px-3 py-1.5 rounded font-semibold'
+								className='flex gap-2 bg-faded-sea-green px-3 py-1.5 rounded font-semibold'
 							>
 								Send
 								<SendIcon />
 							</a>
 						</div>
-					</div>
+					</div> */}
 				</div>
 			</div>
 		</div>
