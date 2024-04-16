@@ -1,7 +1,10 @@
 import { Popover } from '@headlessui/react';
-import type { MetaFunction } from '@remix-run/node';
-import { Form, Link } from '@remix-run/react';
+import type { ActionFunctionArgs, MetaFunction } from '@remix-run/node';
+import { Link, json, useFetcher } from '@remix-run/react';
+import { useEffect, useState } from 'react';
+import { ErrorResponse, Resend } from 'resend';
 import AboutBanner from '~/components/AboutBanner/AboutBanner';
+import ConfirmationModal from '~/components/ConfirmationModal/ConfirmationModal';
 import DownArrowIcon from '~/components/DownArrowIcon/DownArrowIcon';
 import GithubIcon from '~/components/GithubIcon/GithubIcon';
 import LinkIcon from '~/components/LinkIcon/LinkIcon';
@@ -18,7 +21,77 @@ export const meta: MetaFunction = () => {
 	];
 };
 
+const resend = new Resend(process.env.RESEND_API_KEY);
+
+export const action = async ({ request }: ActionFunctionArgs) => {
+	const formData = await request.formData();
+	const name = String(formData.get('name'));
+	const email = String(formData.get('email'));
+	const message = String(formData.get('message'));
+
+	const errors: { [key: string]: string | ErrorResponse } = {};
+
+	if (!name) {
+		errors.name = 'Name is required';
+	}
+
+	if (!email) {
+		errors.email = 'Email is required';
+	}
+
+	if (!email.includes('@')) {
+		errors.email = 'Invalid Email';
+	}
+
+	if (!message) {
+		errors.message = 'Message is required';
+	}
+
+	if (Object.keys(errors).length > 0) {
+		return json({ errors });
+	}
+
+	const { error } = await resend.emails.send({
+		from: 'Roho2k <roho2k@roho.dev>',
+		to: 'rodneyrhkk@gmail.com',
+		subject: `${name} contacted you from my portfolio`,
+		html: message,
+		reply_to: email,
+	});
+
+	if (error != null) {
+		errors.resendError = error;
+		return json({ errors });
+	}
+
+	await resend.emails.send({
+		from: 'Rodney Ho <no-reply@roho.dev>',
+		to: email,
+		subject: "I've received your message. Thanks!",
+		html: '<p>Thanks for contacting me! I have received your message. Please allow me 48 business hours to get back to you.</p><p>Thanks, Rodney.</p><p>Please do not reply to this email. This is an automated message and any replies will not be sent to my inbox.</p>',
+	});
+
+	const data = Object.fromEntries(formData);
+	return json({ data });
+};
+
 export default function Index() {
+	const fetcher = useFetcher();
+	const [open, setOpen] = useState(false);
+	const handleOpen = () => setOpen(true);
+	const handleClose = () => setOpen(false);
+
+	useEffect(
+		function openModal() {
+			if (fetcher.state === 'idle' && !!fetcher.data) {
+				handleOpen();
+			}
+
+			return;
+		},
+		[fetcher.state, fetcher.data]
+	);
+
 	return (
 		<div
 			id='welcome-screen'
@@ -388,10 +461,10 @@ export default function Index() {
 					id='contact'
 					className='pb-10'
 				>
-					<SectionHeader>Contacts</SectionHeader>
+					<SectionHeader>Contact</SectionHeader>
 					<div className='m-10 mt-0'>
-						<div className='flex flex-col justify-center gap-5 bg-deep-sea-green mx-auto p-5 rounded max-w-screen-sm'>
-							<Form
+						<div className='flex flex-col justify-center bg-deep-sea-green mx-auto p-5 rounded max-w-screen-sm'>
+							<fetcher.Form
 								className='flex flex-col gap-3'
 								method='post'
 							>
@@ -400,58 +473,40 @@ export default function Index() {
 									name='name'
 									placeholder='Name'
 									type='text'
+									required
 								/>
+
 								<input
 									className='bg-faded-sea-green placeholder:text-[#1a7468] placeholder:font-normal text-deep-sea-green rounded font-semibold py-1 px-3 focus-visible:outline-none'
 									name='email'
 									placeholder='Email'
 									type='email'
+									required
 								/>
+
 								<textarea
 									className='bg-faded-sea-green placeholder:text-[#1a7468] placeholder:font-normal text-deep-sea-green rounded font-semibold py-3 px-3 focus-visible:outline-none'
 									name='message'
 									placeholder='Send me a message!'
 									rows={6}
+									required
 								/>
-							</Form>
-							<div className='flex justify-end text-deep-sea-green'>
-								<button
-									className='flex gap-2 bg-faded-sea-green px-3 py-1.5 rounded font-semibold'
-									type='submit'
-								>
-									Send
-									<SendIcon />
-								</button>
-							</div>
+								<div className='flex justify-end text-deep-sea-green'>
+									<button
+										className='flex gap-2 bg-faded-sea-green px-3 py-1.5 rounded font-semibold'
+										type='submit'
+									>
+										Send
+										<SendIcon />
+									</button>
+								</div>
+							</fetcher.Form>
 						</div>
 					</div>
-
-					{/* <div className='flex flex-col bg-deep-sea-green mx-5 p-5 rounded'>
-						<div className='flex flex-col gap-3 pb-6'>
-							<h1 className='font-extrabold text-4xl'>
-								Contact Me
-							</h1>
-							<p className='font-semibold text-sm'>
-								Send me a message! My email is{' '}
-								<a
-									href='mailto: rodneyrhkk@gmail.com'
-									className='underline'
-								>
-									rodneyrhkk@gmail.com
-								</a>
-								.
-							</p>
-						</div>
-						<div className='flex justify-end text-deep-sea-green'>
-							<a
-								href='mailto: rodneyrhkk@gmail.com'
-								className='flex gap-2 bg-faded-sea-green px-3 py-1.5 rounded font-semibold'
-							>
-								Send
-								<SendIcon />
-							</a>
-						</div>
-					</div> */}
+					<ConfirmationModal
+						open={open}
+						onClose={handleClose}
+					/>
 				</div>
 			</div>
 		</div>
