@@ -385,9 +385,9 @@ export default function Index() {
 					<SectionHeader>Experience</SectionHeader>
 					<div className='flex flex-col w-full pb-10 px-10 drop-shadow-figma'>
 						<div className='flex flex-col items-center md:flex-row md:justify-center w-full'>
-							<Overlay className='w-full'>
+							<Overlay className='w-full max-w-64 md:max-w-96'>
 								<Overlay.Background>
-									<BluonLogo className='max-w-64 md:max-w-96' />
+									<BluonLogo />
 								</Overlay.Background>
 								<Overlay.Content className='scrollbar scrollbar-track-rounded-lg scrollbar-thumb-rounded-lg scrollbar-corner-rounded-lg scrollbar-track-slate-400 scrollbar-thumb-slate-700 hover:scrollbar-thumb-slate-600'>
 									<div className='text-left '>
@@ -461,9 +461,9 @@ export default function Index() {
 								</Overlay.Content>
 							</Overlay>
 
-							<Overlay className='w-full'>
+							<Overlay className='w-full max-w-64 md:max-w-96'>
 								<Overlay.Background>
-									<HCKTechnologiesLogo className='max-w-64 md:max-w-96' />
+									<HCKTechnologiesLogo />
 								</Overlay.Background>
 								<Overlay.Content className='scrollbar scrollbar-track-rounded-lg scrollbar-thumb-rounded-lg scrollbar-corner-rounded-lg scrollbar-track-slate-400 scrollbar-thumb-slate-700 hover:scrollbar-thumb-slate-600'>
 									<div className='text-left'>
@@ -511,9 +511,9 @@ export default function Index() {
 							</Overlay>
 						</div>
 						<div className='flex flex-col items-center md:flex-row md:justify-center w-full'>
-							<Overlay className='w-full'>
+							<Overlay className='w-full max-w-64 md:max-w-96'>
 								<Overlay.Background>
-									<AmicisLogo className='max-w-64 md:max-w-96' />
+									<AmicisLogo />
 								</Overlay.Background>
 								<Overlay.Content className='scrollbar scrollbar-track-rounded-lg scrollbar-thumb-rounded-lg scrollbar-corner-rounded-lg scrollbar-track-slate-400 scrollbar-thumb-slate-700 hover:scrollbar-thumb-slate-600'>
 									<div className='text-left'>
@@ -560,9 +560,9 @@ export default function Index() {
 								</Overlay.Content>
 							</Overlay>
 
-							<Overlay className='w-full'>
+							<Overlay className='w-full max-w-64 md:max-w-96'>
 								<Overlay.Background>
-									<GMRLogo className='max-w-64 md:max-w-96' />
+									<GMRLogo />
 								</Overlay.Background>
 								<Overlay.Content className='scrollbar scrollbar-track-rounded-lg scrollbar-thumb-rounded-lg scrollbar-corner-rounded-lg scrollbar-track-slate-400 scrollbar-thumb-slate-700 hover:scrollbar-thumb-slate-600'>
 									<div className='text-left'>
