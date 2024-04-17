@@ -4,9 +4,13 @@ import { Link, json, useFetcher } from '@remix-run/react';
 import { useEffect, useState } from 'react';
 import { ErrorResponse, Resend } from 'resend';
 import AboutBanner from '~/components/AboutBanner/AboutBanner';
+import AmicisLogo from '~/components/AmicisLogo/AmicisLogo';
+import BluonLogo from '~/components/BluonLogo/BluonLogo';
 import ConfirmationModal from '~/components/ConfirmationModal/ConfirmationModal';
 import DownArrowIcon from '~/components/DownArrowIcon/DownArrowIcon';
+import GMRLogo from '~/components/GMRLogo/GMRLogo';
 import GithubIcon from '~/components/GithubIcon/GithubIcon';
+import HCKTechnologiesLogo from '~/components/HCKTechnologiesLogo/HCKTechnologiesLogo';
 import LinkIcon from '~/components/LinkIcon/LinkIcon';
 import ProjectBanner from '~/components/ProjectBanner/ProjectBanner';
 import SectionHeader from '~/components/SectionHeader/SectionHeader';
@@ -16,8 +20,8 @@ import TechLogo from '~/components/TechLogo/TechLogo';
 
 export const meta: MetaFunction = () => {
 	return [
-		{ title: 'New Remix App' },
-		{ name: 'description', content: 'Welcome to Remix!' },
+		{ title: "Rodney's Portfolio" },
+		{ name: 'Rodney', content: "Welcome to Rodney's portfolio!" },
 	];
 };
 
@@ -378,24 +382,14 @@ export default function Index() {
 					className='flex flex-col py-10'
 				>
 					<SectionHeader>Experience</SectionHeader>
-					<div className='flex flex-auto justify-center items-center w-full pb-10 px-10 drop-shadow-figma'>
-						<div className='flex flex-col'>
-							<img
-								src='/assets/images/experience/logo-1.svg'
-								alt='logo-1'
-							/>
-							<img
-								src='/assets/images/experience/logo-2.svg'
-								alt='logo-2'
-							/>
-							<img
-								src='/assets/images/experience/logo-3.svg'
-								alt='logo-3'
-							/>
-							<img
-								src='/assets/images/experience/logo-4.svg'
-								alt='logo-4'
-							/>
+					<div className='flex flex-col w-full pb-10 px-10 drop-shadow-figma'>
+						<div className='flex flex-col items-center md:flex-row md:justify-center w-full'>
+							<BluonLogo className='max-w-64 md:max-w-96' />
+							<GMRLogo className='max-w-64 md:max-w-96' />
+						</div>
+						<div className='flex flex-col items-center md:flex-row md:justify-center w-full'>
+							<HCKTechnologiesLogo className='max-w-64 md:max-w-96' />
+							<AmicisLogo className='max-w-64 md:max-w-96' />
 						</div>
 					</div>
 				</div>
