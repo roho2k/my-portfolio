@@ -12,6 +12,7 @@ import GMRLogo from '~/components/GMRLogo/GMRLogo';
 import GithubIcon from '~/components/GithubIcon/GithubIcon';
 import HCKTechnologiesLogo from '~/components/HCKTechnologiesLogo/HCKTechnologiesLogo';
 import LinkIcon from '~/components/LinkIcon/LinkIcon';
+import Overlay from '~/components/Overlay/Overlay';
 import ProjectBanner from '~/components/ProjectBanner/ProjectBanner';
 import SectionHeader from '~/components/SectionHeader/SectionHeader';
 import SendIcon from '~/components/SendIcon/SendIcon';
@@ -384,7 +385,14 @@ export default function Index() {
 					<SectionHeader>Experience</SectionHeader>
 					<div className='flex flex-col w-full pb-10 px-10 drop-shadow-figma'>
 						<div className='flex flex-col items-center md:flex-row md:justify-center w-full'>
-							<BluonLogo className='max-w-64 md:max-w-96' />
+							<Overlay className='w-full'>
+								<Overlay.Background>
+									<BluonLogo className='max-w-64 md:max-w-96' />
+								</Overlay.Background>
+								<Overlay.Content>
+									<h1>Full Stack Developer</h1>
+								</Overlay.Content>
+							</Overlay>
 							<GMRLogo className='max-w-64 md:max-w-96' />
 						</div>
 						<div className='flex flex-col items-center md:flex-row md:justify-center w-full'>
