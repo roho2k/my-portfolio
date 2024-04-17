@@ -389,15 +389,225 @@ export default function Index() {
 								<Overlay.Background>
 									<BluonLogo className='max-w-64 md:max-w-96' />
 								</Overlay.Background>
-								<Overlay.Content>
-									<h1>Full Stack Developer</h1>
+								<Overlay.Content className='scrollbar scrollbar-track-rounded-lg scrollbar-thumb-rounded-lg scrollbar-corner-rounded-lg scrollbar-track-slate-400 scrollbar-thumb-slate-700 hover:scrollbar-thumb-slate-600'>
+									<div className='text-left '>
+										<h1 className='font-semibold text-2xl leading-10'>
+											Full Stack Developer
+										</h1>
+										<p className='text-blue-500 font-bold text-lg'>
+											@Bluon
+										</p>
+										<p className='text-dark-gray text-sm leading-8'>
+											Dec 2021 - Aug 2023
+										</p>
+										<ul className='flex flex-col gap-5 list-disc list-inside pt-3 font-semibold'>
+											<li>
+												Spearheaded the implementation
+												of Bluon Distributor Software
+												Systems, congregating 55% of all
+												U.S. HVAC technicians to connect
+												to our app using React, Redux,
+												TypeScript, Tailwind, and PHP
+												Laravel.
+											</li>
+											<li>
+												Responsible for seamlessly
+												integrating and connecting all
+												products to Stripe API for
+												payment processing using React,
+												Nodejs, TypeScript and Tailwind.
+											</li>
+											<li>
+												Leveraged React, Redux,
+												TypeScript, Tailwind for robust
+												state management to craft a
+												dynamic shopping cart that made
+												adding and removing items or
+												customizing items simple.
+											</li>
+											<li>
+												Implemented forms that
+												automatically validated user
+												input in the frontend and
+												backend using React, React Hook
+												Forms API, Yup, TypeScript,
+												Tailwind, and NodeJs
+											</li>
+											<li>
+												Employed GCP Serverless Cloud
+												Functions and NodeJs to swiftly
+												deploy endpoints for adding
+												entries and generating
+												prize-winning opportunities in
+												spin wheel contests.
+											</li>
+											<li>
+												Engineered a responsive and
+												randomized spin wheel across all
+												devices, delivering an authentic
+												gambling experience using React,
+												TypeScript, and Tailwind.
+											</li>
+											<li>
+												Orchestrated seamless data
+												tracking by integrating HubSpot,
+												BigQuery, DBT and various
+												technologies to monitor prize
+												winners, entrants, and total
+												winnings using Nodejs.
+											</li>
+										</ul>
+									</div>
 								</Overlay.Content>
 							</Overlay>
-							<GMRLogo className='max-w-64 md:max-w-96' />
+
+							<Overlay className='w-full'>
+								<Overlay.Background>
+									<HCKTechnologiesLogo className='max-w-64 md:max-w-96' />
+								</Overlay.Background>
+								<Overlay.Content className='scrollbar scrollbar-track-rounded-lg scrollbar-thumb-rounded-lg scrollbar-corner-rounded-lg scrollbar-track-slate-400 scrollbar-thumb-slate-700 hover:scrollbar-thumb-slate-600'>
+									<div className='text-left'>
+										<h1 className='font-semibold text-2xl leading-10'>
+											Full Stack Developer - Contractor
+										</h1>
+										<p className='text-red-500 font-bold text-lg'>
+											@HCK Technologies
+										</p>
+										<p className='text-dark-gray text-sm leading-8'>
+											Dec 2020 - Dec 2021
+										</p>
+										<ul className='flex flex-col gap-5 list-disc list-inside pt-3 font-semibold'>
+											<li>
+												Championed the development and
+												upkeep of a comprehensive
+												ecommerce application utilizing
+												cutting-edge MERN stack
+												technologies, microservices
+												architecture, Docker,
+												Kubernetes, GraphQL, and Apollo.
+											</li>
+											<li>
+												Overhauled a legacy order
+												management system into a modern
+												web-based platform, enhancing
+												UI/UX friendliness and
+												optimizing application speed;
+												this included utilization of
+												React, React Redux, Redux Thunk,
+												Node, and MongoDB for seamless
+												transformation.
+											</li>
+											<li>
+												Tasked with successfully
+												integrating payment systems into
+												multiple applications using
+												React, TypeScript, and Stripe,
+												ensuring secure and efficient
+												transaction processing.
+											</li>
+										</ul>
+									</div>
+								</Overlay.Content>
+							</Overlay>
 						</div>
 						<div className='flex flex-col items-center md:flex-row md:justify-center w-full'>
-							<HCKTechnologiesLogo className='max-w-64 md:max-w-96' />
-							<AmicisLogo className='max-w-64 md:max-w-96' />
+							<Overlay className='w-full'>
+								<Overlay.Background>
+									<AmicisLogo className='max-w-64 md:max-w-96' />
+								</Overlay.Background>
+								<Overlay.Content className='scrollbar scrollbar-track-rounded-lg scrollbar-thumb-rounded-lg scrollbar-corner-rounded-lg scrollbar-track-slate-400 scrollbar-thumb-slate-700 hover:scrollbar-thumb-slate-600'>
+									<div className='text-left'>
+										<h1 className='font-semibold text-2xl leading-10'>
+											Software Engineer
+										</h1>
+										<p className='text-orange-400 font-bold text-lg'>
+											@Amicis
+										</p>
+										<p className='text-dark-gray text-sm leading-8'>
+											Jan 2019 - Dec 2020
+										</p>
+										<ul className='flex flex-col gap-5 list-disc list-inside pt-3 font-semibold'>
+											<li>
+												Headed the initiative to
+												implement and design a new
+												customer checkout process
+												tailored for both desktop and
+												mobile viewing, enhancing user
+												experience and accessibility
+												using Dynamic 365, KnockoutJs
+												and C#.
+											</li>
+											<li>
+												Streamlined the user interface
+												of the point-of-sale system,
+												significantly reducing user
+												interaction complexity,
+												minimizing fatigue, and
+												eliminating unnecessary
+												repetition using Dynamic 365,
+												KnockoutJs and C#.
+											</li>
+											<li>
+												Developed an API to facilitate
+												seamless communication between
+												eCommerce and point of sale
+												applications, ascertaining
+												consistent data exchange and
+												optimal operations using C#.
+											</li>
+										</ul>
+									</div>
+								</Overlay.Content>
+							</Overlay>
+
+							<Overlay className='w-full'>
+								<Overlay.Background>
+									<GMRLogo className='max-w-64 md:max-w-96' />
+								</Overlay.Background>
+								<Overlay.Content className='scrollbar scrollbar-track-rounded-lg scrollbar-thumb-rounded-lg scrollbar-corner-rounded-lg scrollbar-track-slate-400 scrollbar-thumb-slate-700 hover:scrollbar-thumb-slate-600'>
+									<div className='text-left'>
+										<h1 className='font-semibold text-2xl leading-10'>
+											Software Engineer Intern
+										</h1>
+										<p className='text-black font-bold text-lg'>
+											@GMR Marketing
+										</p>
+										<p className='text-dark-gray text-sm leading-8'>
+											June 2015 - Sept 2015
+										</p>
+										<ul className='flex flex-col gap-5 list-disc list-inside pt-3 font-semibold'>
+											<li>
+												Enhanced SSRS reports by
+												rewriting queries to incorporate
+												additional data, leveraging MS
+												SQL Server&apos;s capabilities.
+											</li>
+											<li>
+												Built and managed a web
+												application utilizing ASP.NET
+												MVC framework and C#, ensuring
+												smooth functionality and user
+												experience.
+											</li>
+											<li>
+												Introduced user-friendly input
+												forms within the application,
+												enabling users to conveniently
+												submit feedback and suggestions
+												using ASP.NET MVC framework.
+											</li>
+											<li>
+												Strengthened the robustness of
+												business logic through the
+												creation of comprehensive unit
+												tests, thereby increasing code
+												coverage and ensuring
+												reliability using C#.
+											</li>
+										</ul>
+									</div>
+								</Overlay.Content>
+							</Overlay>
 						</div>
 					</div>
 				</div>

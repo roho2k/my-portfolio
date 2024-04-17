@@ -12,6 +12,7 @@ export default {
 				'faded-sea-green': '#C7DBDC',
 				'pastel-green': '#CDE5D4',
 				'cloud-gray': '#F8F9FD',
+				'dark-gray': '#94A3B8',
 				'bright-yellow': '#FEFE7C',
 				plum: '#7C4060',
 			},
@@ -33,5 +34,11 @@ export default {
 			addVariant('child', '& > *');
 			addVariant('child-hover', '& > *:hover');
 		},
+
+		// eslint-disable-next-line @typescript-eslint/no-var-requires
+		require('tailwind-scrollbar')({
+			nocompatible: true,
+			preferredStrategy: 'pseudoelements',
+		}),
 	],
 } satisfies Config;

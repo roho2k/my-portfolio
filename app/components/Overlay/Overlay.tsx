@@ -18,13 +18,18 @@ interface OverlayProps {
 const OverlayContext = createContext({ hovered: false });
 function Overlay({ className = '', children }: OverlayProps) {
 	const [hovered, setHovered] = useState(false);
-	const toggleHover = () => setHovered((prev) => !prev);
+	const handleMouseEnter = () => {
+		setHovered(true);
+	};
+	const handleMouseLeave = () => {
+		setHovered(false);
+	};
 
 	return (
 		<button
 			className={classNames('relative flex overflow-hidden', className)}
-			onMouseEnter={toggleHover}
-			onMouseLeave={toggleHover}
+			onMouseEnter={handleMouseEnter}
+			onMouseLeave={handleMouseLeave}
 		>
 			<OverlayContext.Provider value={{ hovered }}>
 				{children}
@@ -42,7 +47,7 @@ function Content({ className = '', children }: ContentProps) {
 	return (
 		<div
 			className={classNames(
-				'absolute backdrop-blur-sm w-full h-full overflow-y-scroll transition-all ease-out duration-500 ',
+				'absolute backdrop-blur-sm w-full h-full overflow-y-scroll transition-all ease-out duration-500 bg-black bg-opacity-50 pt-5 pb-10 px-7',
 				{ 'translate-y-0': hovered, 'translate-y-full': !hovered },
 				className
 			)}
