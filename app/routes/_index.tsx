@@ -417,14 +417,24 @@ export default function Index() {
 								</div>
 
 								<div className='flex gap-5 justify-center'>
-									<div className='flex gap-3 px-3 py-1.5 items-center font-semibold bg-deep-sea-green rounded'>
+									<a
+										className='flex gap-3 px-3 py-1.5 items-center font-semibold bg-deep-sea-green rounded'
+										href='https://github.com/roho2k/my-portfolio'
+										target='_blank'
+										rel='noopener noreferrer'
+									>
 										Github
 										<GithubIcon />
-									</div>
-									<div className='flex gap-3 px-3 py-1.5 font-semibold text-deep-sea-green-hover bg-deep-sea-green bg-opacity-20 rounded'>
+									</a>
+									<a
+										className='flex gap-3 px-3 py-1.5 font-semibold text-deep-sea-green-hover bg-deep-sea-green bg-opacity-20 rounded'
+										href='https://www.roho.dev/'
+										target='_blank'
+										rel='noopener noreferrer'
+									>
 										Link
 										<LinkIcon />
-									</div>
+									</a>
 								</div>
 							</ProjectBanner.LeftPanel>
 
