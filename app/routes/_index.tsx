@@ -180,12 +180,12 @@ export default function Index() {
 			</Popover>
 
 			{/* NavBar Desktop*/}
-			<div className='hidden sm:flex bg-deep-sea-green font-bold px-10 sticky top-0 drop-shadow-figma z-20'>
+			<div className='hidden sm:flex bg-deep-sea-green font-bold px-10 py-[6px] sticky top-0 drop-shadow-figma z-20'>
 				<div className='flex flex-auto'>
 					<Link
 						to='#landing'
 						className={classNames(
-							'p-3 hover:bg-deep-sea-green-hover',
+							'p-3 hover:bg-deep-sea-green-hover rounded-md',
 							{
 								'text-deep-sea-green bg-white hover:bg-white hover:bg-opacity-80':
 									visibleSection == 'welcome',
@@ -200,7 +200,7 @@ export default function Index() {
 					<Link
 						to='#about'
 						className={classNames(
-							'p-3 hover:bg-deep-sea-green-hover',
+							'p-3 hover:bg-deep-sea-green-hover rounded-md',
 							{
 								'text-deep-sea-green bg-white hover:bg-white hover:bg-opacity-80':
 									visibleSection == 'about',
@@ -212,7 +212,7 @@ export default function Index() {
 					<Link
 						to='#experience'
 						className={classNames(
-							'p-3 hover:bg-deep-sea-green-hover',
+							'p-3 hover:bg-deep-sea-green-hover rounded-md',
 							{
 								'text-deep-sea-green bg-white hover:bg-white hover:bg-opacity-80':
 									visibleSection == 'experience',
@@ -224,7 +224,7 @@ export default function Index() {
 					<Link
 						to='#projects'
 						className={classNames(
-							'p-3 hover:bg-deep-sea-green-hover',
+							'p-3 hover:bg-deep-sea-green-hover rounded-md',
 							{
 								'text-deep-sea-green bg-white hover:bg-white hover:bg-opacity-80':
 									visibleSection == 'projects',
@@ -236,7 +236,7 @@ export default function Index() {
 					<Link
 						to='#contact'
 						className={classNames(
-							'p-3 hover:bg-deep-sea-green-hover',
+							'p-3 hover:bg-deep-sea-green-hover rounded-md',
 							{
 								'text-deep-sea-green bg-white hover:bg-white hover:bg-opacity-80':
 									visibleSection == 'contact',
