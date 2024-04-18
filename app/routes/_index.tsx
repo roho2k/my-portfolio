@@ -104,7 +104,7 @@ export default function Index() {
 
 	return (
 		<div
-			id='welcome'
+			id='landing'
 			className='font-nunito-sans text-white bg-cloud-gray'
 		>
 			{/* Navbar Mobile */}
@@ -132,7 +132,7 @@ export default function Index() {
 
 					<div className='flex flex-col gap-4 p-5 pt-0'>
 						<Link
-							to='#welcome'
+							to='#landing'
 							className='p-3 rounded font-semibold text-white bg-deep-sea-green'
 						>
 							<Popover.Button className='w-full'>
@@ -183,7 +183,7 @@ export default function Index() {
 			<div className='hidden sm:flex bg-deep-sea-green font-bold px-10 sticky top-0 drop-shadow-figma z-20'>
 				<div className='flex flex-auto'>
 					<Link
-						to='#welcome'
+						to='#landing'
 						className={classNames(
 							'p-3 hover:bg-deep-sea-green-hover',
 							{
@@ -251,11 +251,13 @@ export default function Index() {
 			{/* Welcome Screen */}
 			<InView
 				className='flex flex-col h-screen w-full bg-gradient-to-b from-deep-sea-green to-pastel-green'
+				id='welcome'
 				as='div'
-				threshold={[0.8]}
+				threshold={[0.7]}
 				initialInView={true}
-				onChange={() => {
-					setVisibleSection('welcome');
+				onChange={(inView, entry) => {
+					if (inView && entry.target.id == 'welcome')
+						setVisibleSection('welcome');
 
 					return;
 				}}
@@ -313,9 +315,9 @@ export default function Index() {
 			<div className='bg-cloud-gray max-w-screen-xl mx-auto'>
 				<InView
 					id='about'
-					className='px-10 py-10'
+					className='px-10 py-10 min-h-screen'
 					as='div'
-					threshold={[1]}
+					threshold={0.7}
 					onChange={(inView, entry) => {
 						if (inView && entry.target.id == 'about')
 							setVisibleSection('about');
@@ -433,9 +435,9 @@ export default function Index() {
 				{/* Experience */}
 				<InView
 					id='experience'
-					className='flex flex-col py-10'
+					className='flex flex-col py-10 min-h-screen'
 					as='div'
-					threshold={[0.8]}
+					threshold={0.7}
 					onChange={(inView, entry) => {
 						if (inView && entry.target.id == 'experience')
 							setVisibleSection('experience');
@@ -675,9 +677,9 @@ export default function Index() {
 				{/* Projects */}
 				<InView
 					id='projects'
-					className='py-10 h-screen'
+					className='py-10 min-h-screen'
 					as='div'
-					threshold={[0.8]}
+					threshold={0.7}
 					onChange={(inView, entry) => {
 						if (inView && entry.target.id == 'projects')
 							setVisibleSection('projects');
@@ -750,9 +752,9 @@ export default function Index() {
 				{/* Contact */}
 				<InView
 					id='contact'
-					className='pb-10'
+					className='pb-10 min-h-screen'
 					as='div'
-					threshold={[1]}
+					threshold={0.7}
 					onChange={(inView, entry) => {
 						if (inView && entry.target.id == 'contact')
 							setVisibleSection('contact');
