@@ -1,7 +1,9 @@
 import { Popover } from '@headlessui/react';
 import type { ActionFunctionArgs, MetaFunction } from '@remix-run/node';
 import { Link, json, useFetcher } from '@remix-run/react';
+import classNames from 'classnames';
 import { useEffect, useState } from 'react';
+import { InView } from 'react-intersection-observer';
 import { ErrorResponse, Resend } from 'resend';
 import AboutBanner from '~/components/AboutBanner/AboutBanner';
 import AmicisLogo from '~/components/AmicisLogo/AmicisLogo';
@@ -82,7 +84,10 @@ export const action = async ({ request }: ActionFunctionArgs) => {
 
 export default function Index() {
 	const fetcher = useFetcher();
+
 	const [open, setOpen] = useState(false);
+	const [visibleSection, setVisibleSection] = useState('');
+
 	const handleOpen = () => setOpen(true);
 	const handleClose = () => setOpen(false);
 
@@ -99,7 +104,7 @@ export default function Index() {
 
 	return (
 		<div
-			id='welcome-screen'
+			id='welcome'
 			className='font-nunito-sans text-white bg-cloud-gray'
 		>
 			{/* Navbar Mobile */}
@@ -127,7 +132,7 @@ export default function Index() {
 
 					<div className='flex flex-col gap-4 p-5 pt-0'>
 						<Link
-							to='#welcome-screen'
+							to='#welcome'
 							className='p-3 rounded font-semibold text-white bg-deep-sea-green'
 						>
 							<Popover.Button className='w-full'>
@@ -178,8 +183,14 @@ export default function Index() {
 			<div className='hidden sm:flex bg-deep-sea-green font-bold px-10 sticky top-0 drop-shadow-figma z-20'>
 				<div className='flex flex-auto'>
 					<Link
-						to='#welcome-screen'
-						className='p-3 hover:bg-deep-sea-green-hover'
+						to='#welcome'
+						className={classNames(
+							'p-3 hover:bg-deep-sea-green-hover',
+							{
+								'text-deep-sea-green bg-white hover:bg-white hover:bg-opacity-80':
+									visibleSection == 'welcome',
+							}
+						)}
 					>
 						Home
 					</Link>
@@ -188,25 +199,49 @@ export default function Index() {
 				<div className='flex justify-center'>
 					<Link
 						to='#about'
-						className='p-3 hover:bg-deep-sea-green-hover'
+						className={classNames(
+							'p-3 hover:bg-deep-sea-green-hover',
+							{
+								'text-deep-sea-green bg-white hover:bg-white hover:bg-opacity-80':
+									visibleSection == 'about',
+							}
+						)}
 					>
 						About
 					</Link>
 					<Link
 						to='#experience'
-						className='p-3 hover:bg-deep-sea-green-hover'
+						className={classNames(
+							'p-3 hover:bg-deep-sea-green-hover',
+							{
+								'text-deep-sea-green bg-white hover:bg-white hover:bg-opacity-80':
+									visibleSection == 'experience',
+							}
+						)}
 					>
 						Experience
 					</Link>
 					<Link
 						to='#projects'
-						className='p-3 hover:bg-deep-sea-green-hover'
+						className={classNames(
+							'p-3 hover:bg-deep-sea-green-hover',
+							{
+								'text-deep-sea-green bg-white hover:bg-white hover:bg-opacity-80':
+									visibleSection == 'projects',
+							}
+						)}
 					>
 						Projects
 					</Link>
 					<Link
 						to='#contact'
-						className='p-3 hover:bg-deep-sea-green-hover'
+						className={classNames(
+							'p-3 hover:bg-deep-sea-green-hover',
+							{
+								'text-deep-sea-green bg-white hover:bg-white hover:bg-opacity-80':
+									visibleSection == 'contact',
+							}
+						)}
 					>
 						Contact
 					</Link>
@@ -214,7 +249,17 @@ export default function Index() {
 			</div>
 
 			{/* Welcome Screen */}
-			<div className='flex flex-col h-screen w-full bg-gradient-to-b from-deep-sea-green to-pastel-green'>
+			<InView
+				className='flex flex-col h-screen w-full bg-gradient-to-b from-deep-sea-green to-pastel-green'
+				as='div'
+				threshold={[0.8]}
+				initialInView={true}
+				onChange={() => {
+					setVisibleSection('welcome');
+
+					return;
+				}}
+			>
 				<section className='relative'>
 					<img
 						className='absolute top-0 mix-blend-difference'
@@ -260,15 +305,23 @@ export default function Index() {
 						</Link>
 					</div>
 				</div>
-			</div>
+			</InView>
 			{/* End Welcome Screen */}
 
 			{/* Content */}
 			{/* About */}
 			<div className='bg-cloud-gray max-w-screen-xl mx-auto'>
-				<div
+				<InView
 					id='about'
 					className='px-10 py-10'
+					as='div'
+					threshold={[1]}
+					onChange={(inView, entry) => {
+						if (inView && entry.target.id == 'about')
+							setVisibleSection('about');
+
+						return;
+					}}
 				>
 					<SectionHeader>About Me</SectionHeader>
 					<div className='flex justify-center md:pt-10 lg:pt-20'>
@@ -376,11 +429,19 @@ export default function Index() {
 							</div>
 						</AboutBanner>
 					</div>
-				</div>
+				</InView>
 				{/* Experience */}
-				<div
+				<InView
 					id='experience'
 					className='flex flex-col py-10'
+					as='div'
+					threshold={[0.8]}
+					onChange={(inView, entry) => {
+						if (inView && entry.target.id == 'experience')
+							setVisibleSection('experience');
+
+						return;
+					}}
 				>
 					<SectionHeader>Experience</SectionHeader>
 					<div className='flex flex-col w-full pb-10 px-10 drop-shadow-figma'>
@@ -610,11 +671,19 @@ export default function Index() {
 							</Overlay>
 						</div>
 					</div>
-				</div>
+				</InView>
 				{/* Projects */}
-				<div
+				<InView
 					id='projects'
 					className='py-10 h-screen'
+					as='div'
+					threshold={[0.8]}
+					onChange={(inView, entry) => {
+						if (inView && entry.target.id == 'projects')
+							setVisibleSection('projects');
+
+						return;
+					}}
 				>
 					<SectionHeader>Projects</SectionHeader>
 					<div className='mx-10 md:pt-10 lg:pt-20'>
@@ -676,12 +745,20 @@ export default function Index() {
 							</ProjectBanner.RightPanel>
 						</ProjectBanner>
 					</div>
-				</div>
+				</InView>
 
 				{/* Contact */}
-				<div
+				<InView
 					id='contact'
 					className='pb-10'
+					as='div'
+					threshold={[1]}
+					onChange={(inView, entry) => {
+						if (inView && entry.target.id == 'contact')
+							setVisibleSection('contact');
+
+						return;
+					}}
 				>
 					<SectionHeader>Contact</SectionHeader>
 					<div className='m-10 mt-0'>
@@ -729,7 +806,7 @@ export default function Index() {
 						open={open}
 						onClose={handleClose}
 					/>
-				</div>
+				</InView>
 			</div>
 		</div>
 	);
