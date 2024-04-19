@@ -7,6 +7,7 @@ import {
 	ScrollRestoration,
 } from '@remix-run/react';
 import stylesheet from '~/tailwind.css?url';
+import MobileNavBar from './components/MobileNavBar/MobileNavBar';
 
 export const links: LinksFunction = () => [
 	{ rel: 'stylesheet', href: stylesheet },
@@ -25,6 +26,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 				<Links />
 			</head>
 			<body>
+				<MobileNavBar />
 				{children}
 				<ScrollRestoration />
 				<Scripts />

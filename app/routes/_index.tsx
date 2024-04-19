@@ -1,4 +1,3 @@
-import { Popover } from '@headlessui/react';
 import type { ActionFunctionArgs, MetaFunction } from '@remix-run/node';
 import { Link, json, useFetcher } from '@remix-run/react';
 import classNames from 'classnames';
@@ -107,78 +106,6 @@ export default function Index() {
 			id='landing'
 			className='font-nunito-sans text-white bg-cloud-gray'
 		>
-			{/* Navbar Mobile */}
-			<Popover className='sticky top-0 sm:hidden bg-deep-sea-green drop-shadow-figma z-20'>
-				<div className='flex items-center py-1 px-5 '>
-					<h1 className='text-white font-bold'>Rodney Ho</h1>
-					<div className='flex flex-auto justify-end'>
-						<Popover.Button className='outline-none'>
-							<div className='relative group'>
-								<div className='relative flex overflow-hidden items-center justify-center rounded-full w-[40px] h-[40px] transform transition-all ring-0'>
-									<div className='flex flex-col justify-between w-[15px] h-[15px]'>
-										<div className='bg-white h-[2px] w-5'></div>
-										<div className='bg-white h-[2px] w-5'></div>
-										<div className='bg-white h-[2px] w-5'></div>
-									</div>
-								</div>
-							</div>
-						</Popover.Button>
-					</div>
-				</div>
-				<Popover.Panel className='absolute w-full bg-cloud-gray outline-none'>
-					<Popover.Button className='h-0 w-0'>
-						<div className='absolute h-screen w-screen backdrop-blur-sm -z-10 outline-none'></div>
-					</Popover.Button>
-
-					<div className='flex flex-col gap-4 p-5 pt-0'>
-						<Link
-							to='#landing'
-							className='p-3 rounded font-semibold text-white bg-deep-sea-green'
-						>
-							<Popover.Button className='w-full'>
-								Home
-							</Popover.Button>
-						</Link>
-
-						<Link
-							to='#about'
-							className='p-3 rounded font-semibold text-white bg-deep-sea-green'
-						>
-							<Popover.Button className='w-full'>
-								About
-							</Popover.Button>
-						</Link>
-
-						<Link
-							to='#experience'
-							className='p-3 rounded font-semibold text-white bg-deep-sea-green'
-						>
-							<Popover.Button className='w-full'>
-								Experience
-							</Popover.Button>
-						</Link>
-
-						<Link
-							to='#projects'
-							className='p-3 rounded font-semibold text-white bg-deep-sea-green'
-						>
-							<Popover.Button className='w-full'>
-								Projects
-							</Popover.Button>
-						</Link>
-
-						<Link
-							to='#contact'
-							className='p-3 rounded font-semibold text-white bg-deep-sea-green'
-						>
-							<Popover.Button className='w-full'>
-								Contact
-							</Popover.Button>
-						</Link>
-					</div>
-				</Popover.Panel>
-			</Popover>
-
 			{/* NavBar Desktop*/}
 			<div className='hidden sm:flex bg-deep-sea-green font-bold px-10 py-[6px] sticky top-0 drop-shadow-figma z-20'>
 				<div className='flex flex-auto'>
@@ -284,26 +211,26 @@ export default function Index() {
 						alt='wave-4'
 					/>
 				</section>
-				<div className='flex flex-auto justify-center items-center px-7'>
+				<div className='flex flex-auto justify-center items-center px-10'>
 					<div className='flex flex-col gap-10 drop-shadow-figma'>
-						<div className='flex flex-col gap-6 text-center md:text-left'>
-							<h1 className='font-bold text-2xl md:text-4xl lg:text-6xl'>
+						<div className='flex flex-col gap-4 text-center md:text-left'>
+							<h1 className='font-bold text-2xl md:text-4xl lg:text-6xl animate-fade-right'>
 								Hello I&apos;m
 								<span className='text-plum'> Rodney</span>.
 							</h1>
-							<h1 className='font-bold text-2xl md:text-4xl lg:text-6xl'>
+							<h1 className='font-bold text-2xl md:text-4xl lg:text-6xl animate-fade-left'>
 								I&apos;m a full stack web developer.
 							</h1>
 						</div>
 
 						<Link
 							to='#about'
-							className='flex bg-plum w-fit px-4 py-2 md:px-8 md:py-3.5 rounded self-center gap-3 text-nowrap items-center'
+							className='flex bg-plum w-fit px-4 py-2 md:px-8 md:py-3.5 rounded self-center gap-3 text-nowrap items-center animate-fade-up'
 						>
 							<p className='font-bold text-md md:text-2xl lg:text-4xl'>
 								View Portfolio
 							</p>
-							<DownArrowIcon />
+							<DownArrowIcon className='w-5 h-5 md:w-10 md:h-10' />
 						</Link>
 					</div>
 				</div>
