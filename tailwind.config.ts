@@ -28,7 +28,18 @@ export default {
 		dropShadow: {
 			figma: '0 4px 4px rgba(0, 0, 0, 0.25)',
 		},
+		animation: {
+			'slide-out': 'slide-out 700ms ease forwards',
+		},
+		keyframes: {
+			'slide-out': {
+				'0%': { transform: 'translateX(-101%)' },
+				// '50%': { transform: 'translateX(50%)' },
+				'100%': { transform: 'translateX(101%)' },
+			},
+		},
 	},
+
 	plugins: [
 		function ({ addVariant }) {
 			addVariant('child', '& > *');
