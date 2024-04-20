@@ -2,7 +2,7 @@ import type { ActionFunctionArgs, MetaFunction } from '@remix-run/node';
 import { Link, json, useFetcher } from '@remix-run/react';
 import classNames from 'classnames';
 import { useEffect, useState } from 'react';
-import { InView } from 'react-intersection-observer';
+import { useInView } from 'react-intersection-observer';
 import { ErrorResponse, Resend } from 'resend';
 import AboutBanner from '~/components/AboutBanner/AboutBanner';
 import AmicisLogo from '~/components/AmicisLogo/AmicisLogo';
@@ -83,9 +83,32 @@ export const action = async ({ request }: ActionFunctionArgs) => {
 
 export default function Index() {
 	const fetcher = useFetcher();
-
 	const [open, setOpen] = useState(false);
-	const [visibleSection, setVisibleSection] = useState('');
+
+	const [welcomeRef, welcomeInView] = useInView({
+		threshold: 0.4,
+	});
+	const [aboutRef, aboutInView] = useInView({
+		threshold: 0.2,
+		rootMargin: '-60px',
+	});
+	const [experienceRef, experienceInView] = useInView({
+		threshold: 0.4,
+		rootMargin: '-60px',
+	});
+	const [projectsRef, projectsInView] = useInView({
+		threshold: 0.2,
+		rootMargin: '-60px',
+	});
+	const [contactRef, contactInView] = useInView({
+		threshold: 0.2,
+		rootMargin: '-60px',
+	});
+
+	const [welcomeHeaderRef, welcomeHeaderInView] = useInView({
+		threshold: 0.2,
+		rootMargin: '-60px',
+	});
 
 	const handleOpen = () => setOpen(true);
 	const handleClose = () => setOpen(false);
@@ -103,19 +126,19 @@ export default function Index() {
 
 	return (
 		<div
-			id='landing'
+			id='top'
 			className='font-nunito-sans text-white bg-cloud-gray'
 		>
 			{/* NavBar Desktop*/}
 			<div className='hidden sm:flex bg-deep-sea-green font-bold px-10 py-[6px] sticky top-0 drop-shadow-figma z-20'>
 				<div className='flex flex-auto'>
 					<Link
-						to='#landing'
+						to='#top'
 						className={classNames(
 							'p-3 hover:bg-deep-sea-green-hover rounded-md',
 							{
 								'text-deep-sea-green bg-white hover:bg-white hover:bg-opacity-80':
-									visibleSection == 'welcome',
+									welcomeInView,
 							}
 						)}
 					>
@@ -130,7 +153,7 @@ export default function Index() {
 							'p-3 hover:bg-deep-sea-green-hover rounded-md',
 							{
 								'text-deep-sea-green bg-white hover:bg-white hover:bg-opacity-80':
-									visibleSection == 'about',
+									aboutInView && !welcomeInView,
 							}
 						)}
 					>
@@ -142,7 +165,7 @@ export default function Index() {
 							'p-3 hover:bg-deep-sea-green-hover rounded-md',
 							{
 								'text-deep-sea-green bg-white hover:bg-white hover:bg-opacity-80':
-									visibleSection == 'experience',
+									experienceInView && !aboutInView,
 							}
 						)}
 					>
@@ -154,7 +177,7 @@ export default function Index() {
 							'p-3 hover:bg-deep-sea-green-hover rounded-md',
 							{
 								'text-deep-sea-green bg-white hover:bg-white hover:bg-opacity-80':
-									visibleSection == 'projects',
+									projectsInView && !experienceInView,
 							}
 						)}
 					>
@@ -166,7 +189,7 @@ export default function Index() {
 							'p-3 hover:bg-deep-sea-green-hover rounded-md',
 							{
 								'text-deep-sea-green bg-white hover:bg-white hover:bg-opacity-80':
-									visibleSection == 'contact',
+									contactInView && !projectsInView,
 							}
 						)}
 					>
@@ -176,18 +199,10 @@ export default function Index() {
 			</div>
 
 			{/* Welcome Screen */}
-			<InView
+			<div
 				className='flex flex-col h-screen w-full bg-gradient-to-b from-deep-sea-green to-pastel-green'
 				id='welcome'
-				as='div'
-				threshold={[0.7]}
-				initialInView={true}
-				onChange={(inView, entry) => {
-					if (inView && entry.target.id == 'welcome')
-						setVisibleSection('welcome');
-
-					return;
-				}}
+				ref={welcomeRef}
 			>
 				<section className='relative'>
 					<img
@@ -212,20 +227,39 @@ export default function Index() {
 					/>
 				</section>
 				<div className='flex flex-auto justify-center items-center px-10'>
-					<div className='flex flex-col gap-10 drop-shadow-figma'>
+					<div
+						className='flex flex-col gap-10 drop-shadow-figma'
+						ref={welcomeHeaderRef}
+					>
 						<div className='flex flex-col gap-4 text-center md:text-left'>
-							<h1 className='font-bold text-2xl md:text-4xl lg:text-6xl animate-fade-right'>
+							<h1
+								className={classNames(
+									'font-bold text-2xl md:text-4xl lg:text-6xl',
+									{
+										'animate-fade-right':
+											welcomeHeaderInView,
+									}
+								)}
+							>
 								Hello I&apos;m
 								<span className='text-plum'> Rodney</span>.
 							</h1>
-							<h1 className='font-bold text-2xl md:text-4xl lg:text-6xl animate-fade-left'>
+							<h1
+								className={classNames(
+									'font-bold text-2xl md:text-4xl lg:text-6xl',
+									{ 'animate-fade-left': welcomeHeaderInView }
+								)}
+							>
 								I&apos;m a full stack web developer.
 							</h1>
 						</div>
 
 						<Link
 							to='#about'
-							className='flex bg-plum w-fit px-4 py-2 md:px-8 md:py-3.5 rounded self-center gap-3 text-nowrap items-center animate-fade-up'
+							className={classNames(
+								'flex bg-plum w-fit px-4 py-2 md:px-8 md:py-3.5 rounded self-center gap-3 text-nowrap items-center',
+								{ 'animate-fade-up': welcomeHeaderInView }
+							)}
 						>
 							<p className='font-bold text-md md:text-2xl lg:text-4xl'>
 								View Portfolio
@@ -234,23 +268,16 @@ export default function Index() {
 						</Link>
 					</div>
 				</div>
-			</InView>
+			</div>
 			{/* End Welcome Screen */}
 
 			{/* Content */}
 			{/* About */}
 			<div className='bg-cloud-gray max-w-screen-xl mx-auto'>
-				<InView
+				<div
 					id='about'
 					className='px-10 py-10 min-h-screen'
-					as='div'
-					threshold={0.7}
-					onChange={(inView, entry) => {
-						if (inView && entry.target.id == 'about')
-							setVisibleSection('about');
-
-						return;
-					}}
+					ref={aboutRef}
 				>
 					<SectionHeader>About Me</SectionHeader>
 					<div className='flex justify-center md:pt-10 lg:pt-20'>
@@ -358,19 +385,12 @@ export default function Index() {
 							</div>
 						</AboutBanner>
 					</div>
-				</InView>
+				</div>
 				{/* Experience */}
-				<InView
+				<div
 					id='experience'
 					className='flex flex-col py-10 min-h-screen'
-					as='div'
-					threshold={0.7}
-					onChange={(inView, entry) => {
-						if (inView && entry.target.id == 'experience')
-							setVisibleSection('experience');
-
-						return;
-					}}
+					ref={experienceRef}
 				>
 					<SectionHeader>Experience</SectionHeader>
 					<div className='flex flex-col w-full pb-10 px-10 drop-shadow-figma'>
@@ -600,19 +620,12 @@ export default function Index() {
 							</Overlay>
 						</div>
 					</div>
-				</InView>
+				</div>
 				{/* Projects */}
-				<InView
+				<div
 					id='projects'
 					className='py-10 min-h-screen'
-					as='div'
-					threshold={0.7}
-					onChange={(inView, entry) => {
-						if (inView && entry.target.id == 'projects')
-							setVisibleSection('projects');
-
-						return;
-					}}
+					ref={projectsRef}
 				>
 					<SectionHeader>Projects</SectionHeader>
 					<div className='mx-10 md:pt-10 lg:pt-20'>
@@ -674,20 +687,13 @@ export default function Index() {
 							</ProjectBanner.RightPanel>
 						</ProjectBanner>
 					</div>
-				</InView>
+				</div>
 
 				{/* Contact */}
-				<InView
+				<div
 					id='contact'
 					className='pb-10 min-h-screen'
-					as='div'
-					threshold={0.7}
-					onChange={(inView, entry) => {
-						if (inView && entry.target.id == 'contact')
-							setVisibleSection('contact');
-
-						return;
-					}}
+					ref={contactRef}
 				>
 					<SectionHeader>Contact</SectionHeader>
 					<div className='m-10 mt-0'>
@@ -735,7 +741,7 @@ export default function Index() {
 						open={open}
 						onClose={handleClose}
 					/>
-				</InView>
+				</div>
 			</div>
 		</div>
 	);

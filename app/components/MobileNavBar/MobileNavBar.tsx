@@ -43,7 +43,7 @@ export default function MobileNavBar() {
 					<section className='fixed top-12 z-30 flex flex-col w-full bg-white text-deep-sea-green font-bold animate-fade'>
 						<button
 							className='p-5'
-							onClick={() => handleNavigate('#landing')}
+							onClick={() => handleNavigate('#top')}
 						>
 							Home
 						</button>
