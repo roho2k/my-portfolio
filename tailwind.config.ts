@@ -29,13 +29,20 @@ export default {
 			figma: '0 4px 4px rgba(0, 0, 0, 0.25)',
 		},
 		animation: {
-			'slide-out': 'slide-out 700ms ease forwards',
+			'slide-out': 'slide-out 500ms ease-in-out forwards',
+			'scale-into': 'scale-into 700ms ease forwards',
 		},
 		keyframes: {
 			'slide-out': {
 				'0%': { transform: 'translateX(-101%)' },
-				// '50%': { transform: 'translateX(50%)' },
 				'100%': { transform: 'translateX(101%)' },
+			},
+			'scale-into': {
+				'0%': {
+					transform: 'scale(0.6) translate3d(100px, 0, 0)',
+					opacity: '0',
+				},
+				'100%': { transform: 'scale(1) translate3d(0)', opacity: '1' },
 			},
 		},
 	},

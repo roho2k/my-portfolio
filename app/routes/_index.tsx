@@ -110,6 +110,14 @@ export default function Index() {
 		rootMargin: '-60px',
 	});
 
+	const [aboutLeftPanelRef, aboutLeftPanelInView] = useInView({
+		threshold: 0.2,
+	});
+
+	const [aboutRightPanelRef, aboutRightPanelInView] = useInView({
+		threshold: 0.2,
+	});
+
 	const handleOpen = () => setOpen(true);
 	const handleClose = () => setOpen(false);
 
@@ -261,10 +269,10 @@ export default function Index() {
 								{ 'animate-fade-up': welcomeHeaderInView }
 							)}
 						>
-							<p className='font-bold text-md md:text-2xl lg:text-4xl'>
+							<p className='font-bold text-md md:text-xl lg:text-2xl'>
 								View Portfolio
 							</p>
-							<DownArrowIcon className='w-5 h-5 md:w-10 md:h-10' />
+							<DownArrowIcon className='w-5 h-5 md:w-7 md:h-7 lg:w-10 lg:h-10' />
 						</Link>
 					</div>
 				</div>
@@ -272,471 +280,520 @@ export default function Index() {
 			{/* End Welcome Screen */}
 
 			{/* Content */}
-			{/* About */}
+
 			<div className='bg-cloud-gray max-w-screen-xl mx-auto'>
+				{/* About */}
 				<div
 					id='about'
-					className='px-10 py-10 min-h-screen'
-					ref={aboutRef}
+					className='flex items-center px-10 py-10 min-h-screen'
 				>
-					<SectionHeader>About Me</SectionHeader>
-					<div className='flex justify-center md:pt-10 lg:pt-20'>
-						<AboutBanner>
-							<div className='flex flex-col gap-5 lg:max-w-xl'>
-								<div className='flex justify-center items-center'>
-									<img
-										className='w-[150px] h-[150px]'
-										src='/assets/images/about/persona.svg'
-										alt='persona'
-									/>
-								</div>
-								<div className='flex flex-col font-semibold text-sm md:text-base bg-deep-sea-green rounded py-3 px-5 '>
-									<p className='pb-5'>
-										<span className='text-xl md:text-4xl'>
-											H
-										</span>
-										ey! I&apos;m Rodney, a full stack
-										developer with expertise in web
-										development. My experience spans
-										creating interactive user interfaces
-										using React, designing RESTful APIs with
-										NodeJS and Express, and managing SQL and
-										NoSQL databases like PostgreSQL and
-										MongoDB.
-									</p>
+					<div ref={aboutRef}>
+						<SectionHeader>About Me</SectionHeader>
+						<div className='flex justify-center md:pt-10 lg:pt-20'>
+							<AboutBanner>
+								<AboutBanner.LeftPanel
+									ref={aboutLeftPanelRef}
+									className='flex flex-col gap-5 lg:w-1/2'
+								>
+									<div className=' bg-deep-sea-green rounded py-3 px-5'>
+										<div
+											className={classNames(
+												'flex flex-col font-semibold text-sm md:text-base',
+												{
+													'animate-scale-into':
+														aboutLeftPanelInView,
+												}
+											)}
+										>
+											<p className='pb-5'>
+												<span className='text-xl md:text-4xl'>
+													H
+												</span>
+												ey! I&apos;m Rodney, a full
+												stack developer with expertise
+												in web development. My
+												experience spans creating
+												interactive user interfaces
+												using React, designing RESTful
+												APIs with NodeJS and Express,
+												and managing SQL and NoSQL
+												databases like PostgreSQL and
+												MongoDB.
+											</p>
 
-									<p className='pb-5'>
-										I have a strong passion for building
-										robust and clean software. My focus on
-										best practices and continuous learning
-										ensures that the software I build not
-										only meets current requirements but also
-										adapts seamlessly to future challenges.
-									</p>
+											<p className='pb-5'>
+												I have a strong passion for
+												building robust and clean
+												software. My focus on best
+												practices and continuous
+												learning ensures that the
+												software I build not only meets
+												current requirements but also
+												adapts seamlessly to future
+												challenges.
+											</p>
 
-									<p className='pb-3'>
-										When I&apos;m not at my computer I like
-										to spend my time reading, keeping fit,
-										and playing with my cats.
-									</p>
-								</div>
-							</div>
-							<div className='flex flex-col gap-10 lg:gap-0'>
-								<div className='flex flex-auto items-end gap-10'>
-									<TechLogo
-										src='/assets/images/about/nodejs.svg'
-										alt='nodejs-logo'
-									>
-										NodeJs
-									</TechLogo>
-									<TechLogo
-										src='/assets/images/about/react.svg'
-										alt='react-logo'
-									>
-										React
-									</TechLogo>
-									<TechLogo
-										src='/assets/images/about/typescript.svg'
-										alt='typescript-logo'
-									>
-										TypeScript
-									</TechLogo>
-								</div>
-								<div className='flex flex-auto items-end gap-10'>
-									<TechLogo
-										src='/assets/images/about/remix.svg'
-										alt='remix-logo'
-									>
-										Remix
-									</TechLogo>
-									<TechLogo
-										src='/assets/images/about/supabase.svg'
-										alt='supabase-logo'
-									>
-										Supabase
-									</TechLogo>
-									<TechLogo
-										src='/assets/images/about/prisma.svg'
-										alt='prisma-logo'
-									>
-										Prisma
-									</TechLogo>
-								</div>
-								<div className='flex flex-auto items-end gap-10'>
-									<TechLogo
-										src='/assets/images/about/javascript.svg'
-										alt='javascript-logo'
-									>
-										Javascript
-									</TechLogo>
-									<TechLogo
-										src='/assets/images/about/html.svg'
-										alt='html-logo'
-									>
-										HTML
-									</TechLogo>
-									<TechLogo
-										src='/assets/images/about/css.svg'
-										alt='css-logo'
-									>
-										CSS
-									</TechLogo>
-								</div>
-							</div>
-						</AboutBanner>
+											<p className='pb-3'>
+												When I&apos;m not at my computer
+												I like to spend my time reading,
+												keeping fit, and playing with my
+												cats.
+											</p>
+										</div>
+									</div>
+								</AboutBanner.LeftPanel>
+								<AboutBanner.RightPanel
+									ref={aboutRightPanelRef}
+									className={classNames(
+										'flex flex-col gap-10 lg:gap-0 lg:w-1/2',
+										{
+											'animate-fade animate-duration-1000':
+												aboutRightPanelInView,
+										}
+									)}
+								>
+									<div className='flex flex-auto items-end gap-10'>
+										<TechLogo
+											src='/assets/images/about/nodejs.svg'
+											alt='nodejs-logo'
+										>
+											NodeJs
+										</TechLogo>
+										<TechLogo
+											src='/assets/images/about/react.svg'
+											alt='react-logo'
+										>
+											React
+										</TechLogo>
+										<TechLogo
+											src='/assets/images/about/typescript.svg'
+											alt='typescript-logo'
+										>
+											TypeScript
+										</TechLogo>
+									</div>
+									<div className='flex flex-auto items-end gap-10'>
+										<TechLogo
+											src='/assets/images/about/remix.svg'
+											alt='remix-logo'
+										>
+											Remix
+										</TechLogo>
+										<TechLogo
+											src='/assets/images/about/supabase.svg'
+											alt='supabase-logo'
+										>
+											Supabase
+										</TechLogo>
+										<TechLogo
+											src='/assets/images/about/prisma.svg'
+											alt='prisma-logo'
+										>
+											Prisma
+										</TechLogo>
+									</div>
+									<div className='flex flex-auto items-end gap-10'>
+										<TechLogo
+											src='/assets/images/about/javascript.svg'
+											alt='javascript-logo'
+										>
+											Javascript
+										</TechLogo>
+										<TechLogo
+											src='/assets/images/about/html.svg'
+											alt='html-logo'
+										>
+											HTML
+										</TechLogo>
+										<TechLogo
+											src='/assets/images/about/css.svg'
+											alt='css-logo'
+										>
+											CSS
+										</TechLogo>
+									</div>
+								</AboutBanner.RightPanel>
+							</AboutBanner>
+						</div>
 					</div>
 				</div>
 				{/* Experience */}
 				<div
 					id='experience'
-					className='flex flex-col py-10 min-h-screen'
+					className='flex items-center  justify-center py-10 min-h-screen'
 					ref={experienceRef}
 				>
-					<SectionHeader>Experience</SectionHeader>
-					<div className='flex flex-col w-full pb-10 px-10 drop-shadow-figma'>
-						<div className='flex flex-col items-center md:flex-row md:justify-center w-full'>
-							<Overlay className='w-full max-w-64 md:max-w-96'>
-								<Overlay.Background>
-									<BluonLogo />
-								</Overlay.Background>
-								<Overlay.Content className='scrollbar scrollbar-track-rounded-lg scrollbar-thumb-rounded-lg scrollbar-corner-rounded-lg scrollbar-track-slate-400 scrollbar-thumb-slate-700 hover:scrollbar-thumb-slate-600'>
-									<div className='text-left '>
-										<h1 className='font-semibold text-2xl leading-10'>
-											Full Stack Developer
-										</h1>
-										<p className='text-blue-500 font-bold text-lg'>
-											@Bluon
-										</p>
-										<p className='text-dark-gray text-sm leading-8'>
-											Dec 2021 - Aug 2023
-										</p>
-										<ul className='flex flex-col gap-5 list-disc list-inside pt-3 font-semibold'>
-											<li>
-												Spearheaded the implementation
-												of Bluon Distributor Software
-												Systems, congregating 55% of all
-												U.S. HVAC technicians to connect
-												to our app using React, Redux,
-												TypeScript, Tailwind, and PHP
-												Laravel.
-											</li>
-											<li>
-												Responsible for seamlessly
-												integrating and connecting all
-												products to Stripe API for
-												payment processing using React,
-												Nodejs, TypeScript and Tailwind.
-											</li>
-											<li>
-												Leveraged React, Redux,
-												TypeScript, Tailwind for robust
-												state management to craft a
-												dynamic shopping cart that made
-												adding and removing items or
-												customizing items simple.
-											</li>
-											<li>
-												Implemented forms that
-												automatically validated user
-												input in the frontend and
-												backend using React, React Hook
-												Forms API, Yup, TypeScript,
-												Tailwind, and NodeJs
-											</li>
-											<li>
-												Employed GCP Serverless Cloud
-												Functions and NodeJs to swiftly
-												deploy endpoints for adding
-												entries and generating
-												prize-winning opportunities in
-												spin wheel contests.
-											</li>
-											<li>
-												Engineered a responsive and
-												randomized spin wheel across all
-												devices, delivering an authentic
-												gambling experience using React,
-												TypeScript, and Tailwind.
-											</li>
-											<li>
-												Orchestrated seamless data
-												tracking by integrating HubSpot,
-												BigQuery, DBT and various
-												technologies to monitor prize
-												winners, entrants, and total
-												winnings using Nodejs.
-											</li>
-										</ul>
-									</div>
-								</Overlay.Content>
-							</Overlay>
+					<div className='flex-auto'>
+						<SectionHeader>Experience</SectionHeader>
+						<div className='flex flex-col w-full p-10 drop-shadow-figma'>
+							<div className='flex flex-col items-center md:flex-row md:justify-center w-full'>
+								<Overlay className='w-full max-w-64 md:max-w-96'>
+									<Overlay.Background>
+										<BluonLogo />
+									</Overlay.Background>
+									<Overlay.Content className='scrollbar scrollbar-track-rounded-lg scrollbar-thumb-rounded-lg scrollbar-corner-rounded-lg scrollbar-track-slate-400 scrollbar-thumb-slate-700 hover:scrollbar-thumb-slate-600'>
+										<div className='text-left '>
+											<h1 className='font-semibold text-2xl leading-10'>
+												Full Stack Developer
+											</h1>
+											<p className='text-blue-500 font-bold text-lg'>
+												@Bluon
+											</p>
+											<p className='text-dark-gray text-sm leading-8'>
+												Dec 2021 - Aug 2023
+											</p>
+											<ul className='flex flex-col gap-5 list-disc list-inside pt-3 font-semibold'>
+												<li>
+													Spearheaded the
+													implementation of Bluon
+													Distributor Software
+													Systems, congregating 55% of
+													all U.S. HVAC technicians to
+													connect to our app using
+													React, Redux, TypeScript,
+													Tailwind, and PHP Laravel.
+												</li>
+												<li>
+													Responsible for seamlessly
+													integrating and connecting
+													all products to Stripe API
+													for payment processing using
+													React, Nodejs, TypeScript
+													and Tailwind.
+												</li>
+												<li>
+													Leveraged React, Redux,
+													TypeScript, Tailwind for
+													robust state management to
+													craft a dynamic shopping
+													cart that made adding and
+													removing items or
+													customizing items simple.
+												</li>
+												<li>
+													Implemented forms that
+													automatically validated user
+													input in the frontend and
+													backend using React, React
+													Hook Forms API, Yup,
+													TypeScript, Tailwind, and
+													NodeJs
+												</li>
+												<li>
+													Employed GCP Serverless
+													Cloud Functions and NodeJs
+													to swiftly deploy endpoints
+													for adding entries and
+													generating prize-winning
+													opportunities in spin wheel
+													contests.
+												</li>
+												<li>
+													Engineered a responsive and
+													randomized spin wheel across
+													all devices, delivering an
+													authentic gambling
+													experience using React,
+													TypeScript, and Tailwind.
+												</li>
+												<li>
+													Orchestrated seamless data
+													tracking by integrating
+													HubSpot, BigQuery, DBT and
+													various technologies to
+													monitor prize winners,
+													entrants, and total winnings
+													using Nodejs.
+												</li>
+											</ul>
+										</div>
+									</Overlay.Content>
+								</Overlay>
 
-							<Overlay className='w-full max-w-64 md:max-w-96'>
-								<Overlay.Background>
-									<HCKTechnologiesLogo />
-								</Overlay.Background>
-								<Overlay.Content className='scrollbar scrollbar-track-rounded-lg scrollbar-thumb-rounded-lg scrollbar-corner-rounded-lg scrollbar-track-slate-400 scrollbar-thumb-slate-700 hover:scrollbar-thumb-slate-600'>
-									<div className='text-left'>
-										<h1 className='font-semibold text-2xl leading-10'>
-											Full Stack Developer - Contractor
-										</h1>
-										<p className='text-red-500 font-bold text-lg'>
-											@HCK Technologies
-										</p>
-										<p className='text-dark-gray text-sm leading-8'>
-											Dec 2020 - Dec 2021
-										</p>
-										<ul className='flex flex-col gap-5 list-disc list-inside pt-3 font-semibold'>
-											<li>
-												Championed the development and
-												upkeep of a comprehensive
-												ecommerce application utilizing
-												cutting-edge MERN stack
-												technologies, microservices
-												architecture, Docker,
-												Kubernetes, GraphQL, and Apollo.
-											</li>
-											<li>
-												Overhauled a legacy order
-												management system into a modern
-												web-based platform, enhancing
-												UI/UX friendliness and
-												optimizing application speed;
-												this included utilization of
-												React, React Redux, Redux Thunk,
-												Node, and MongoDB for seamless
-												transformation.
-											</li>
-											<li>
-												Tasked with successfully
-												integrating payment systems into
-												multiple applications using
-												React, TypeScript, and Stripe,
-												ensuring secure and efficient
-												transaction processing.
-											</li>
-										</ul>
-									</div>
-								</Overlay.Content>
-							</Overlay>
-						</div>
-						<div className='flex flex-col items-center md:flex-row md:justify-center w-full'>
-							<Overlay className='w-full max-w-64 md:max-w-96'>
-								<Overlay.Background>
-									<AmicisLogo />
-								</Overlay.Background>
-								<Overlay.Content className='scrollbar scrollbar-track-rounded-lg scrollbar-thumb-rounded-lg scrollbar-corner-rounded-lg scrollbar-track-slate-400 scrollbar-thumb-slate-700 hover:scrollbar-thumb-slate-600'>
-									<div className='text-left'>
-										<h1 className='font-semibold text-2xl leading-10'>
-											Software Engineer
-										</h1>
-										<p className='text-orange-400 font-bold text-lg'>
-											@Amicis
-										</p>
-										<p className='text-dark-gray text-sm leading-8'>
-											Jan 2019 - Dec 2020
-										</p>
-										<ul className='flex flex-col gap-5 list-disc list-inside pt-3 font-semibold'>
-											<li>
-												Headed the initiative to
-												implement and design a new
-												customer checkout process
-												tailored for both desktop and
-												mobile viewing, enhancing user
-												experience and accessibility
-												using Dynamic 365, KnockoutJs
-												and C#.
-											</li>
-											<li>
-												Streamlined the user interface
-												of the point-of-sale system,
-												significantly reducing user
-												interaction complexity,
-												minimizing fatigue, and
-												eliminating unnecessary
-												repetition using Dynamic 365,
-												KnockoutJs and C#.
-											</li>
-											<li>
-												Developed an API to facilitate
-												seamless communication between
-												eCommerce and point of sale
-												applications, ascertaining
-												consistent data exchange and
-												optimal operations using C#.
-											</li>
-										</ul>
-									</div>
-								</Overlay.Content>
-							</Overlay>
+								<Overlay className='w-full max-w-64 md:max-w-96'>
+									<Overlay.Background>
+										<HCKTechnologiesLogo />
+									</Overlay.Background>
+									<Overlay.Content className='scrollbar scrollbar-track-rounded-lg scrollbar-thumb-rounded-lg scrollbar-corner-rounded-lg scrollbar-track-slate-400 scrollbar-thumb-slate-700 hover:scrollbar-thumb-slate-600'>
+										<div className='text-left'>
+											<h1 className='font-semibold text-2xl leading-10'>
+												Full Stack Developer -
+												Contractor
+											</h1>
+											<p className='text-red-500 font-bold text-lg'>
+												@HCK Technologies
+											</p>
+											<p className='text-dark-gray text-sm leading-8'>
+												Dec 2020 - Dec 2021
+											</p>
+											<ul className='flex flex-col gap-5 list-disc list-inside pt-3 font-semibold'>
+												<li>
+													Championed the development
+													and upkeep of a
+													comprehensive ecommerce
+													application utilizing
+													cutting-edge MERN stack
+													technologies, microservices
+													architecture, Docker,
+													Kubernetes, GraphQL, and
+													Apollo.
+												</li>
+												<li>
+													Overhauled a legacy order
+													management system into a
+													modern web-based platform,
+													enhancing UI/UX friendliness
+													and optimizing application
+													speed; this included
+													utilization of React, React
+													Redux, Redux Thunk, Node,
+													and MongoDB for seamless
+													transformation.
+												</li>
+												<li>
+													Tasked with successfully
+													integrating payment systems
+													into multiple applications
+													using React, TypeScript, and
+													Stripe, ensuring secure and
+													efficient transaction
+													processing.
+												</li>
+											</ul>
+										</div>
+									</Overlay.Content>
+								</Overlay>
+							</div>
+							<div className='flex flex-col items-center md:flex-row md:justify-center w-full'>
+								<Overlay className='w-full max-w-64 md:max-w-96'>
+									<Overlay.Background>
+										<AmicisLogo />
+									</Overlay.Background>
+									<Overlay.Content className='scrollbar scrollbar-track-rounded-lg scrollbar-thumb-rounded-lg scrollbar-corner-rounded-lg scrollbar-track-slate-400 scrollbar-thumb-slate-700 hover:scrollbar-thumb-slate-600'>
+										<div className='text-left'>
+											<h1 className='font-semibold text-2xl leading-10'>
+												Software Engineer
+											</h1>
+											<p className='text-orange-400 font-bold text-lg'>
+												@Amicis
+											</p>
+											<p className='text-dark-gray text-sm leading-8'>
+												Jan 2019 - Dec 2020
+											</p>
+											<ul className='flex flex-col gap-5 list-disc list-inside pt-3 font-semibold'>
+												<li>
+													Headed the initiative to
+													implement and design a new
+													customer checkout process
+													tailored for both desktop
+													and mobile viewing,
+													enhancing user experience
+													and accessibility using
+													Dynamic 365, KnockoutJs and
+													C#.
+												</li>
+												<li>
+													Streamlined the user
+													interface of the
+													point-of-sale system,
+													significantly reducing user
+													interaction complexity,
+													minimizing fatigue, and
+													eliminating unnecessary
+													repetition using Dynamic
+													365, KnockoutJs and C#.
+												</li>
+												<li>
+													Developed an API to
+													facilitate seamless
+													communication between
+													eCommerce and point of sale
+													applications, ascertaining
+													consistent data exchange and
+													optimal operations using C#.
+												</li>
+											</ul>
+										</div>
+									</Overlay.Content>
+								</Overlay>
 
-							<Overlay className='w-full max-w-64 md:max-w-96'>
-								<Overlay.Background>
-									<GMRLogo />
-								</Overlay.Background>
-								<Overlay.Content className='scrollbar scrollbar-track-rounded-lg scrollbar-thumb-rounded-lg scrollbar-corner-rounded-lg scrollbar-track-slate-400 scrollbar-thumb-slate-700 hover:scrollbar-thumb-slate-600'>
-									<div className='text-left'>
-										<h1 className='font-semibold text-2xl leading-10'>
-											Software Engineer Intern
-										</h1>
-										<p className='text-black font-bold text-lg'>
-											@GMR Marketing
-										</p>
-										<p className='text-dark-gray text-sm leading-8'>
-											June 2015 - Sept 2015
-										</p>
-										<ul className='flex flex-col gap-5 list-disc list-inside pt-3 font-semibold'>
-											<li>
-												Enhanced SSRS reports by
-												rewriting queries to incorporate
-												additional data, leveraging MS
-												SQL Server&apos;s capabilities.
-											</li>
-											<li>
-												Built and managed a web
-												application utilizing ASP.NET
-												MVC framework and C#, ensuring
-												smooth functionality and user
-												experience.
-											</li>
-											<li>
-												Introduced user-friendly input
-												forms within the application,
-												enabling users to conveniently
-												submit feedback and suggestions
-												using ASP.NET MVC framework.
-											</li>
-											<li>
-												Strengthened the robustness of
-												business logic through the
-												creation of comprehensive unit
-												tests, thereby increasing code
-												coverage and ensuring
-												reliability using C#.
-											</li>
-										</ul>
-									</div>
-								</Overlay.Content>
-							</Overlay>
+								<Overlay className='w-full max-w-64 md:max-w-96'>
+									<Overlay.Background>
+										<GMRLogo />
+									</Overlay.Background>
+									<Overlay.Content className='scrollbar scrollbar-track-rounded-lg scrollbar-thumb-rounded-lg scrollbar-corner-rounded-lg scrollbar-track-slate-400 scrollbar-thumb-slate-700 hover:scrollbar-thumb-slate-600'>
+										<div className='text-left'>
+											<h1 className='font-semibold text-2xl leading-10'>
+												Software Engineer Intern
+											</h1>
+											<p className='text-black font-bold text-lg'>
+												@GMR Marketing
+											</p>
+											<p className='text-dark-gray text-sm leading-8'>
+												June 2015 - Sept 2015
+											</p>
+											<ul className='flex flex-col gap-5 list-disc list-inside pt-3 font-semibold'>
+												<li>
+													Enhanced SSRS reports by
+													rewriting queries to
+													incorporate additional data,
+													leveraging MS SQL
+													Server&apos;s capabilities.
+												</li>
+												<li>
+													Built and managed a web
+													application utilizing
+													ASP.NET MVC framework and
+													C#, ensuring smooth
+													functionality and user
+													experience.
+												</li>
+												<li>
+													Introduced user-friendly
+													input forms within the
+													application, enabling users
+													to conveniently submit
+													feedback and suggestions
+													using ASP.NET MVC framework.
+												</li>
+												<li>
+													Strengthened the robustness
+													of business logic through
+													the creation of
+													comprehensive unit tests,
+													thereby increasing code
+													coverage and ensuring
+													reliability using C#.
+												</li>
+											</ul>
+										</div>
+									</Overlay.Content>
+								</Overlay>
+							</div>
 						</div>
 					</div>
 				</div>
 				{/* Projects */}
 				<div
 					id='projects'
-					className='py-10 min-h-screen'
+					className='flex justify-center items-center py-10 min-h-screen'
 					ref={projectsRef}
 				>
-					<SectionHeader>Projects</SectionHeader>
-					<div className='mx-10 md:pt-10 lg:pt-20'>
-						<ProjectBanner className='justify-center'>
-							<ProjectBanner.LeftPanel className='lg:max-w-lg'>
-								<div className='flex justify-center'>
-									<img
-										className='rounded'
-										src='/assets/images/projects/project-1.svg'
-										alt='project-1'
-									/>
-								</div>
+					<div>
+						<SectionHeader>Projects</SectionHeader>
+						<div className='mx-10 md:pt-10 lg:pt-20'>
+							<ProjectBanner className='justify-center'>
+								<ProjectBanner.LeftPanel className='lg:max-w-lg'>
+									<div className='flex justify-center'>
+										<img
+											className='rounded'
+											src='/assets/images/projects/project-1.svg'
+											alt='project-1'
+										/>
+									</div>
 
-								<div className='flex gap-5 justify-center'>
-									<a
-										className='flex gap-3 px-3 py-1.5 items-center font-semibold bg-deep-sea-green rounded'
-										href='https://github.com/roho2k/my-portfolio'
-										target='_blank'
-										rel='noopener noreferrer'
-									>
-										Github
-										<GithubIcon />
-									</a>
-									<a
-										className='flex gap-3 px-3 py-1.5 font-semibold text-deep-sea-green-hover bg-deep-sea-green bg-opacity-20 rounded'
-										href='https://www.roho.dev/'
-										target='_blank'
-										rel='noopener noreferrer'
-									>
-										Link
-										<LinkIcon />
-									</a>
-								</div>
-							</ProjectBanner.LeftPanel>
+									<div className='flex gap-5 justify-center'>
+										<a
+											className='flex gap-3 px-3 py-1.5 items-center font-semibold bg-deep-sea-green rounded'
+											href='https://github.com/roho2k/my-portfolio'
+											target='_blank'
+											rel='noopener noreferrer'
+										>
+											Github
+											<GithubIcon />
+										</a>
+										<a
+											className='flex gap-3 px-3 py-1.5 font-semibold text-deep-sea-green-hover bg-deep-sea-green bg-opacity-20 rounded'
+											href='https://www.roho.dev/'
+											target='_blank'
+											rel='noopener noreferrer'
+										>
+											Link
+											<LinkIcon />
+										</a>
+									</div>
+								</ProjectBanner.LeftPanel>
 
-							<ProjectBanner.RightPanel className='text-deep-sea-green lg:max-w-md'>
-								<div className=''>
-									<h2 className='font-bold text-xl md:text-2xl lg:text-4xl'>
-										Portfolio 2024
-									</h2>
-									<p className='border-b-2 border-faded-sea-green font-semibold text-xs md:text-sm lg:text-base py-2'>
-										By Me
-									</p>
-									<p className='font-semibold text-sm md:text-base lg:text-lg pt-3'>
-										A project on my portfolio designed in
-										Figma and built using React, Remix
-										Framework, and Tailwind.
-										{/* Check out in detail how I
+								<ProjectBanner.RightPanel className='text-deep-sea-green lg:max-w-md'>
+									<div className=''>
+										<h2 className='font-bold text-xl md:text-2xl lg:text-4xl'>
+											Portfolio 2024
+										</h2>
+										<p className='border-b-2 border-faded-sea-green font-semibold text-xs md:text-sm lg:text-base py-2'>
+											By Me
+										</p>
+										<p className='font-semibold text-sm md:text-base lg:text-lg pt-3'>
+											A project on my portfolio designed
+											in Figma and built using React,
+											Remix Framework, and Tailwind.
+											{/* Check out in detail how I
 										approached this project in the link
 										button above! */}
-									</p>
-									<div className='flex flex-wrap gap-3 pt-5 lg:text-lg'>
-										<Tag>React</Tag>
-										<Tag>Remix</Tag>
-										<Tag>Tailwind</Tag>
-										<Tag>Figma</Tag>
+										</p>
+										<div className='flex flex-wrap gap-3 pt-5 lg:text-lg'>
+											<Tag>React</Tag>
+											<Tag>Remix</Tag>
+											<Tag>Tailwind</Tag>
+											<Tag>Figma</Tag>
+										</div>
 									</div>
-								</div>
-							</ProjectBanner.RightPanel>
-						</ProjectBanner>
+								</ProjectBanner.RightPanel>
+							</ProjectBanner>
+						</div>
 					</div>
 				</div>
 
 				{/* Contact */}
 				<div
 					id='contact'
-					className='pb-10 min-h-screen'
+					className='flex justify-center items-center pb-10 min-h-screen'
 					ref={contactRef}
 				>
-					<SectionHeader>Contact</SectionHeader>
-					<div className='m-10 mt-0'>
-						<div className='flex flex-col justify-center bg-deep-sea-green mx-auto p-5 rounded max-w-screen-sm'>
-							<fetcher.Form
-								className='flex flex-col gap-3'
-								method='post'
-							>
-								<input
-									className='bg-faded-sea-green placeholder:text-[#1a7468] placeholder:font-normal text-deep-sea-green rounded font-semibold py-1 px-3 focus-visible:outline-none'
-									name='name'
-									placeholder='Name'
-									type='text'
-									required
-								/>
+					<div className='flex-auto'>
+						<SectionHeader>Contact</SectionHeader>
+						<div className='m-10'>
+							<div className='flex flex-col justify-center bg-deep-sea-green mx-auto p-5 rounded max-w-screen-sm'>
+								<fetcher.Form
+									className='flex flex-col gap-3'
+									method='post'
+								>
+									<input
+										className='bg-faded-sea-green placeholder:text-[#1a7468] placeholder:font-normal text-deep-sea-green rounded font-semibold py-1 px-3 focus-visible:outline-none'
+										name='name'
+										placeholder='Name'
+										type='text'
+										required
+									/>
 
-								<input
-									className='bg-faded-sea-green placeholder:text-[#1a7468] placeholder:font-normal text-deep-sea-green rounded font-semibold py-1 px-3 focus-visible:outline-none'
-									name='email'
-									placeholder='Email'
-									type='email'
-									required
-								/>
+									<input
+										className='bg-faded-sea-green placeholder:text-[#1a7468] placeholder:font-normal text-deep-sea-green rounded font-semibold py-1 px-3 focus-visible:outline-none'
+										name='email'
+										placeholder='Email'
+										type='email'
+										required
+									/>
 
-								<textarea
-									className='bg-faded-sea-green placeholder:text-[#1a7468] placeholder:font-normal text-deep-sea-green rounded font-semibold py-3 px-3 focus-visible:outline-none'
-									name='message'
-									placeholder='Send me a message!'
-									rows={6}
-									required
-								/>
-								<div className='flex justify-end text-deep-sea-green'>
-									<button
-										className='flex gap-2 bg-faded-sea-green px-3 py-1.5 rounded font-semibold'
-										type='submit'
-									>
-										Send
-										<SendIcon />
-									</button>
-								</div>
-							</fetcher.Form>
+									<textarea
+										className='bg-faded-sea-green placeholder:text-[#1a7468] placeholder:font-normal text-deep-sea-green rounded font-semibold py-3 px-3 focus-visible:outline-none'
+										name='message'
+										placeholder='Send me a message!'
+										rows={6}
+										required
+									/>
+									<div className='flex justify-end text-deep-sea-green'>
+										<button
+											className='flex gap-2 bg-faded-sea-green px-3 py-1.5 rounded font-semibold'
+											type='submit'
+										>
+											Send
+											<SendIcon />
+										</button>
+									</div>
+								</fetcher.Form>
+							</div>
 						</div>
 					</div>
+
 					<ConfirmationModal
 						open={open}
 						onClose={handleClose}
