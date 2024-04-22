@@ -30,12 +30,22 @@ export default {
 		},
 		animation: {
 			'slide-out': 'slide-out 500ms ease-in-out forwards',
+			'slide-right': 'slide-right 400ms ease-in-out forwards',
+			'slide-left': 'slide-left 400ms ease-in-out forwards',
 			'scale-into': 'scale-into 700ms ease forwards',
 		},
 		keyframes: {
 			'slide-out': {
 				'0%': { transform: 'translateX(-101%)' },
 				'100%': { transform: 'translateX(101%)' },
+			},
+			'slide-right': {
+				'0%': { transform: 'translate3d(-50%, 0, 0)', opacity: '0' },
+				'100%': { transform: 'translate3d(0)', opacity: '1' },
+			},
+			'slide-left': {
+				'0%': { transform: 'translate3d(50%, 0, 0)', opacity: '0' },
+				'100%': { transform: 'translate3d(0)', opacity: '1' },
 			},
 			'scale-into': {
 				'0%': {

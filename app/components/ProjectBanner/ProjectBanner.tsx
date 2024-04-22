@@ -1,3 +1,5 @@
+import { forwardRef } from 'react';
+
 interface BaseProps {
 	children: React.ReactNode;
 	className?: string;
@@ -19,21 +21,33 @@ function ProjectBanner({ children, className = '' }: ProjectBannerProps) {
 	);
 }
 
-function LeftPanel({ children, className = '' }: LeftPanelProps) {
+const LeftPanel = forwardRef(function LeftPanel(
+	{ children, className = '' }: LeftPanelProps,
+	ref: React.LegacyRef<HTMLDivElement> | undefined
+) {
 	return (
-		<div className={`flex flex-col gap-5 md:basis-1/2 ${className}`}>
+		<div
+			ref={ref}
+			className={`flex flex-col gap-5 md:basis-1/2 ${className}`}
+		>
 			{children}
 		</div>
 	);
-}
+});
 
-function RightPanel({ children, className = '' }: RightPanelProps) {
+const RightPanel = forwardRef(function RightPanel(
+	{ children, className = '' }: RightPanelProps,
+	ref: React.LegacyRef<HTMLDivElement> | undefined
+) {
 	return (
-		<div className={`flex flex-col gap-5 md:basis-1/2 ${className}`}>
+		<div
+			ref={ref}
+			className={`flex flex-col gap-5 md:basis-1/2 ${className}`}
+		>
 			{children}
 		</div>
 	);
-}
+});
 
 ProjectBanner.LeftPanel = LeftPanel;
 ProjectBanner.RightPanel = RightPanel;

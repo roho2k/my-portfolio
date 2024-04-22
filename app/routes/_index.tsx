@@ -118,6 +118,18 @@ export default function Index() {
 		threshold: 0.2,
 	});
 
+	const [portfolioProjectRef, portfolioProjectInView] = useInView({
+		threshold: 0.2,
+	});
+
+	const [projectLeftPanelRef, projectLeftPanelInView] = useInView({
+		threshold: 0.2,
+	});
+
+	const [projectRightPanelRef, projectRightPanelInView] = useInView({
+		threshold: 0.2,
+	});
+
 	const handleOpen = () => setOpen(true);
 	const handleClose = () => setOpen(false);
 
@@ -680,10 +692,22 @@ export default function Index() {
 					ref={projectsRef}
 				>
 					<div>
+						{/* will need to refactor ref names to "portfolioProjectLeftPanel, etc..." */}
+						{/* should reuse porfolioProjectLeftPanel instead of separate refs for the TagLinks */}
+						{/* should create component for clickable tags */}
+						{/* should create component for each project panel */}
+						{/* if creating component, then i only need to write one ref */}
+						{/* also i can refactor the panels to use empty tags so i dont need to forward ref to keep simplicity */}
 						<SectionHeader>Projects</SectionHeader>
 						<div className='mx-10 md:pt-10 lg:pt-20'>
 							<ProjectBanner className='justify-center'>
-								<ProjectBanner.LeftPanel className='lg:max-w-lg'>
+								<ProjectBanner.LeftPanel
+									ref={projectLeftPanelRef}
+									className={classNames('lg:max-w-lg', {
+										'animate-slide-right':
+											projectLeftPanelInView,
+									})}
+								>
 									<div className='flex justify-center'>
 										<img
 											className='rounded'
@@ -692,9 +716,18 @@ export default function Index() {
 										/>
 									</div>
 
-									<div className='flex gap-5 justify-center'>
+									<div
+										ref={portfolioProjectRef}
+										className='flex gap-5 justify-center'
+									>
 										<a
-											className='flex gap-3 px-3 py-1.5 items-center font-semibold bg-deep-sea-green rounded'
+											className={classNames(
+												'flex gap-3 px-3 py-1.5 items-center font-semibold bg-deep-sea-green rounded',
+												{
+													'animate-flip-down animate-delay-100':
+														portfolioProjectInView,
+												}
+											)}
 											href='https://github.com/roho2k/my-portfolio'
 											target='_blank'
 											rel='noopener noreferrer'
@@ -703,7 +736,13 @@ export default function Index() {
 											<GithubIcon />
 										</a>
 										<a
-											className='flex gap-3 px-3 py-1.5 font-semibold text-deep-sea-green-hover bg-deep-sea-green bg-opacity-20 rounded'
+											className={classNames(
+												'flex gap-3 px-3 py-1.5 font-semibold text-deep-sea-green-hover bg-deep-sea-green bg-opacity-20 rounded',
+												{
+													'animate-flip-down animate-delay-100':
+														portfolioProjectInView,
+												}
+											)}
 											href='https://www.roho.dev/'
 											target='_blank'
 											rel='noopener noreferrer'
@@ -714,7 +753,16 @@ export default function Index() {
 									</div>
 								</ProjectBanner.LeftPanel>
 
-								<ProjectBanner.RightPanel className='text-deep-sea-green lg:max-w-md'>
+								<ProjectBanner.RightPanel
+									ref={projectRightPanelRef}
+									className={classNames(
+										'text-deep-sea-green lg:max-w-md',
+										{
+											'animate-slide-left':
+												projectRightPanelInView,
+										}
+									)}
+								>
 									<div className=''>
 										<h2 className='font-bold text-xl md:text-2xl lg:text-4xl'>
 											Portfolio 2024
