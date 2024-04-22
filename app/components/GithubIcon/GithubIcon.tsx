@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import { twMerge } from 'tailwind-merge';
 
 interface GithubIconProps {
 	className?: string;
@@ -7,7 +8,7 @@ interface GithubIconProps {
 export default function GithubIcon({ className = '' }: GithubIconProps) {
 	return (
 		<svg
-			className={classNames('fill-white w-5 h-5', className)}
+			className={twMerge(classNames('fill-white w-5 h-5', className))}
 			viewBox='0 0 98 96'
 		>
 			<path

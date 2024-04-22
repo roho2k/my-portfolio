@@ -9,6 +9,7 @@ import AmicisLogo from '~/components/AmicisLogo/AmicisLogo';
 import BluonLogo from '~/components/BluonLogo/BluonLogo';
 import ConfirmationModal from '~/components/ConfirmationModal/ConfirmationModal';
 import DownArrowIcon from '~/components/DownArrowIcon/DownArrowIcon';
+import ExternalLink from '~/components/ExternalLink/ExternalLink';
 import GMRLogo from '~/components/GMRLogo/GMRLogo';
 import GithubIcon from '~/components/GithubIcon/GithubIcon';
 import HCKTechnologiesLogo from '~/components/HCKTechnologiesLogo/HCKTechnologiesLogo';
@@ -647,7 +648,7 @@ export default function Index() {
 						{/* also i can refactor the panels to use empty tags so i dont need to forward ref to keep simplicity */}
 						<SectionHeader>Projects</SectionHeader>
 						<div className='mx-10 md:pt-10 lg:pt-20'>
-							<ProjectBanner className='justify-center'>
+							<ProjectBanner className=''>
 								<ProjectBanner.LeftPanel
 									ref={projectLeftPanelRef}
 									className={classNames('lg:max-w-lg', {
@@ -655,13 +656,16 @@ export default function Index() {
 											projectLeftPanelInView,
 									})}
 								>
-									<div className='flex justify-center'>
+									<ExternalLink
+										className='flex justify-center transition duration-200 hover:scale-105 cursor-pointer'
+										href='https://www.roho.dev/'
+									>
 										<img
 											className='rounded'
 											src='/assets/images/projects/project-1.svg'
 											alt='project-1'
 										/>
-									</div>
+									</ExternalLink>
 
 									<div
 										ref={portfolioProjectRef}

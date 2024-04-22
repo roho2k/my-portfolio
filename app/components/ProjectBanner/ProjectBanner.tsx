@@ -14,7 +14,7 @@ interface RightPanelProps extends BaseProps {}
 function ProjectBanner({ children, className = '' }: ProjectBannerProps) {
 	return (
 		<div
-			className={`flex flex-col md:flex-row md:items-start gap-5 lg:gap-20 ${className}`}
+			className={`flex flex-col md:flex-row md:items-start gap-10 lg:gap-20 justify-center ${className}`}
 		>
 			{children}
 		</div>

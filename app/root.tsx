@@ -10,6 +10,7 @@ import stylesheet from '~/tailwind.css?url';
 import MobileNavBar from './components/MobileNavBar/MobileNavBar';
 import { createContext, useState } from 'react';
 import NavBar from './components/NavBar/NavBar';
+import Footer from './components/Footer/Footer';
 
 export const links: LinksFunction = () => [
 	{ rel: 'stylesheet', href: stylesheet },
@@ -62,7 +63,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 				<LayoutContext.Provider value={{ setSectionsInView }}>
 					{children}
 				</LayoutContext.Provider>
-
+				<Footer />
 				<ScrollRestoration />
 				<Scripts />
 			</body>
