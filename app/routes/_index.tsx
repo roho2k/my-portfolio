@@ -1,7 +1,7 @@
 import type { ActionFunctionArgs, MetaFunction } from '@remix-run/node';
 import { Link, json, useFetcher } from '@remix-run/react';
 import classNames from 'classnames';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { ErrorResponse, Resend } from 'resend';
 import AboutBanner from '~/components/AboutBanner/AboutBanner';
@@ -19,6 +19,7 @@ import SectionHeader from '~/components/SectionHeader/SectionHeader';
 import SendIcon from '~/components/SendIcon/SendIcon';
 import Tag from '~/components/Tag/Tag';
 import TechLogo from '~/components/TechLogo/TechLogo';
+import { LayoutContext } from '~/root';
 
 export const meta: MetaFunction = () => {
 	return [
@@ -84,6 +85,7 @@ export const action = async ({ request }: ActionFunctionArgs) => {
 export default function Index() {
 	const fetcher = useFetcher();
 	const [open, setOpen] = useState(false);
+	const { setSectionsInView } = useContext(LayoutContext);
 
 	const [welcomeRef, welcomeInView] = useInView({
 		threshold: 0.4,
@@ -104,6 +106,23 @@ export default function Index() {
 		threshold: 0.2,
 		rootMargin: '-60px',
 	});
+
+	useEffect(() => {
+		setSectionsInView({
+			welcomeInView,
+			aboutInView,
+			experienceInView,
+			projectsInView,
+			contactInView,
+		});
+	}, [
+		welcomeInView,
+		aboutInView,
+		experienceInView,
+		projectsInView,
+		contactInView,
+		setSectionsInView,
+	]);
 
 	const [welcomeHeaderRef, welcomeHeaderInView] = useInView({
 		threshold: 0.2,
@@ -145,79 +164,7 @@ export default function Index() {
 	);
 
 	return (
-		<div
-			id='top'
-			className='font-nunito-sans text-white bg-cloud-gray'
-		>
-			{/* NavBar Desktop*/}
-			<div className='hidden sm:flex bg-deep-sea-green font-bold px-10 py-[6px] sticky top-0 drop-shadow-figma z-20'>
-				<div className='flex flex-auto'>
-					<Link
-						to='#top'
-						className={classNames(
-							'p-3 hover:bg-deep-sea-green-hover rounded-md',
-							{
-								'text-deep-sea-green bg-white hover:bg-white hover:bg-opacity-80':
-									welcomeInView,
-							}
-						)}
-					>
-						Home
-					</Link>
-				</div>
-
-				<div className='flex justify-center'>
-					<Link
-						to='#about'
-						className={classNames(
-							'p-3 hover:bg-deep-sea-green-hover rounded-md',
-							{
-								'text-deep-sea-green bg-white hover:bg-white hover:bg-opacity-80':
-									aboutInView && !welcomeInView,
-							}
-						)}
-					>
-						About
-					</Link>
-					<Link
-						to='#experience'
-						className={classNames(
-							'p-3 hover:bg-deep-sea-green-hover rounded-md',
-							{
-								'text-deep-sea-green bg-white hover:bg-white hover:bg-opacity-80':
-									experienceInView && !aboutInView,
-							}
-						)}
-					>
-						Experience
-					</Link>
-					<Link
-						to='#projects'
-						className={classNames(
-							'p-3 hover:bg-deep-sea-green-hover rounded-md',
-							{
-								'text-deep-sea-green bg-white hover:bg-white hover:bg-opacity-80':
-									projectsInView && !experienceInView,
-							}
-						)}
-					>
-						Projects
-					</Link>
-					<Link
-						to='#contact'
-						className={classNames(
-							'p-3 hover:bg-deep-sea-green-hover rounded-md',
-							{
-								'text-deep-sea-green bg-white hover:bg-white hover:bg-opacity-80':
-									contactInView && !projectsInView,
-							}
-						)}
-					>
-						Contact
-					</Link>
-				</div>
-			</div>
-
+		<div className='font-nunito-sans text-white bg-cloud-gray'>
 			{/* Welcome Screen */}
 			<div
 				className='flex flex-col h-screen w-full bg-gradient-to-b from-deep-sea-green to-pastel-green'
