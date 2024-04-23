@@ -142,13 +142,9 @@ export default function Index() {
 		threshold: 0.2,
 	});
 
-	const [projectLeftPanelRef, projectLeftPanelInView] = useInView({
-		threshold: 0.2,
-	});
+	const [projectLeftPanelRef, projectLeftPanelInView] = useInView({});
 
-	const [projectRightPanelRef, projectRightPanelInView] = useInView({
-		threshold: 0.2,
-	});
+	const [projectRightPanelRef, projectRightPanelInView] = useInView({});
 
 	const handleOpen = () => setOpen(true);
 	const handleClose = () => setOpen(false);

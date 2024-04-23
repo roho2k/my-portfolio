@@ -24,7 +24,7 @@ export default function SectionHeader({
 				{animateTrigger && (
 					<div
 						className={classNames(
-							'absolute inset-0 bg-deep-sea-green transform-gpu',
+							'absolute inset-0 bg-deep-sea-green',
 							{ 'block animate-slide-out': inView }
 						)}
 					></div>

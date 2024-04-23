@@ -47,7 +47,7 @@ function Content({ className = '', children }: ContentProps) {
 	return (
 		<div
 			className={classNames(
-				'absolute backdrop-blur-sm w-full h-full overflow-y-scroll transition-all ease-out duration-500 bg-black bg-opacity-50 pt-5 pb-10 px-7',
+				'absolute backdrop-blur-sm w-full h-full overflow-y-scroll transition-all ease-out duration-500 bg-black bg-opacity-50 pt-5 pb-10 px-7 transform-gpu',
 				{ 'translate-y-0': hovered, 'translate-y-full': !hovered },
 				className
 			)}

@@ -36,8 +36,8 @@ export default {
 		},
 		keyframes: {
 			'slide-out': {
-				'0%': { transform: 'translateX(-101%)' },
-				'100%': { transform: 'translateX(101%)' },
+				'0%': { transform: 'translate3d(-101%, 0, 0)' },
+				'100%': { transform: 'translate3d(101%, 0 ,0)' },
 			},
 			'slide-right': {
 				'0%': { transform: 'translate3d(-50%, 0, 0)', opacity: '0' },
@@ -69,5 +69,6 @@ export default {
 			preferredStrategy: 'pseudoelements',
 		}),
 		require('tailwindcss-animated'),
+		require('@xpd/tailwind-3dtransforms'),
 	],
 } satisfies Config;

@@ -19,7 +19,7 @@ export default function MobileNavBar() {
 
 	return (
 		<>
-			<nav className='fixed w-full flex items-center px-5 sm:hidden bg-deep-sea-green text-white z-30'>
+			<nav className='sticky top-0 w-full flex items-center px-5 sm:hidden bg-deep-sea-green text-white z-30'>
 				<h1 className='flex-auto font-bold'>Rodney Ho</h1>
 				<Hamburger
 					size={20}
@@ -40,7 +40,7 @@ export default function MobileNavBar() {
 						role='button'
 						tabIndex={0}
 					></div>
-					<section className='fixed top-12 z-30 flex flex-col w-full bg-white text-deep-sea-green font-bold animate-fade'>
+					<section className='fixed top-12 z-30 flex flex-col w-full bg-white text-deep-sea-green font-bold animate-fade animate-duration-200'>
 						<button
 							className='p-5'
 							onClick={() => handleNavigate('#top')}
