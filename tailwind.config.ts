@@ -69,6 +69,5 @@ export default {
 			preferredStrategy: 'pseudoelements',
 		}),
 		require('tailwindcss-animated'),
-		require('@xpd/tailwind-3dtransforms'),
 	],
 } satisfies Config;
