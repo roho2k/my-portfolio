@@ -723,16 +723,17 @@ export default function Index() {
 										<p className='font-semibold text-sm md:text-base lg:text-lg pt-3'>
 											A project on my portfolio designed
 											in Figma and built using React,
-											Remix Framework, and Tailwind.
-											{/* Check out in detail how I
-										approached this project in the link
-										button above! */}
+											Remix Framework, and Tailwind. This
+											project is hosted on Vercel and the
+											domain is managed in Cloudflare.
 										</p>
 										<div className='flex flex-wrap gap-3 pt-5 lg:text-lg'>
 											<Tag>React</Tag>
 											<Tag>Remix</Tag>
 											<Tag>Tailwind</Tag>
 											<Tag>Figma</Tag>
+											<Tag>Vercel</Tag>
+											<Tag>Cloudflare</Tag>
 										</div>
 									</div>
 								</ProjectBanner.RightPanel>
