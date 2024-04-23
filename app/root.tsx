@@ -45,7 +45,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
 	return (
 		<html
-			className='scroll-smooth'
+			className='h-full overflow-auto scroll-smooth'
 			lang='en'
 		>
 			<head>
@@ -57,7 +57,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 				<Meta />
 				<Links />
 			</head>
-			<body id='top'>
+			<body className='h-full overflow-auto scroll-smooth'>
 				<MobileNavBar />
 				<NavBar {...sectionsInView} />
 				<LayoutContext.Provider value={{ setSectionsInView }}>

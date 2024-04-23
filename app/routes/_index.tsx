@@ -161,7 +161,10 @@ export default function Index() {
 	);
 
 	return (
-		<div className='font-nunito-sans text-white bg-cloud-gray'>
+		<div
+			id='top'
+			className='font-nunito-sans text-white bg-cloud-gray scroll-mt-12'
+		>
 			{/* Welcome Screen */}
 			<div
 				className='flex flex-col h-screen w-full bg-gradient-to-b from-deep-sea-green to-pastel-green'
